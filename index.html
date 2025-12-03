@@ -1,121 +1,125 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>曼都板新店｜價目表 & 預約須知</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>曼都板新店｜價目表 & 預約須知</title>
 
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: "PingFang TC", "Noto Sans TC", sans-serif;
-        background: #f6efe6 url('https://i.imgur.com/tLh2r9U.png') repeat;
-        background-size: 300px;
-        color: #4a3f35;
-    }
-    .tabs {
-        display: flex;
-        justify-content: center;
-        background: #f2e6d8;
-        border-bottom: 2px solid #d8c4b6;
-        position: sticky;
-        top: 0;
-    }
-    .tab {
-        padding: 12px 20px;
-        cursor: pointer;
-        font-size: 18px;
-        color: #6d5b52;
-    }
-    .tab.active {
-        font-weight: 700;
-        color: #000;
-        border-bottom: 3px solid #c49e85;
-    }
-    .content {
-        padding: 20px;
-        max-width: 600px;
-        margin: auto;
-        line-height: 1.8;
-        background: rgba(255,255,255,0.7);
-        border-radius: 12px;
-        margin-top: 20px;
-    }
-    h2 {
-        text-align: center;
-        margin-bottom: 15px;
-    }
-    .note {
-        margin-top: 30px;
-        text-align: center;
-        font-size: 14px;
-        color: #9c8b7a;
-    }
-</style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "PingFang TC", "Noto Sans TC", sans-serif;
+            background: #f6efe6;
+            color: #4a3f35;
+        }
 
+        /* 標籤 tab */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background: #f2e6d8;
+            border-bottom: 2px solid #d8c1a6;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #6a5145;
+        }
+
+        .tab.active {
+            border-bottom: 3px solid #c48a6f;
+            color: #c48a6f;
+        }
+
+        /* 內容區 */
+        .content {
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 14px;
+            color: #5a463e;
+        }
+
+        .item {
+            margin-bottom: 12px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #c48a6f;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function showTab(tabName) {
+            document.getElementById("price").style.display = "none";
+            document.getElementById("notice").style.display = "none";
+
+            document.getElementById(tabName).style.display = "block";
+
+            document.getElementById("tabPrice").classList.remove("active");
+            document.getElementById("tabNotice").classList.remove("active");
+
+            document.getElementById("tab" + tabName.charAt(0).toUpperCase() + tabName.slice(1)).classList.add("active");
+        }
+    </script>
 </head>
+
 <body>
 
-<div class="tabs">
-    <div class="tab active" onclick="showTab(0)">價目表</div>
-    <div class="tab" onclick="showTab(1)">預約須知</div>
-</div>
+    <!-- 標籤 -->
+    <div class="tabs">
+        <div class="tab active" id="tabPrice" onclick="showTab('price')">價目表</div>
+        <div class="tab" id="tabNotice" onclick="showTab('notice')">預約須知</div>
+    </div>
 
-<!-- 價目表 -->
-<div class="content page" id="page0">
-    <h2>✨ 洗髮剪髮 價目表 ✨</h2>
-    
-    <b>【洗髮】</b><br />
-    芳香洗 / 假日洗　$499 up<br />
-    健康洗　$799 up<br />
-    Spa 舒壓洗　$1699 up<br />
-    法式 SPA 洗　$2199 up<br /><br />
+    <!-- 內容：價目表 -->
+    <div class="content" id="price">
+        <h2>✨ 洗髮剪髮 價目表 ✨</h2>
 
-    ➕ 長度加價：<br />
-    ‧ 肩下 25cm +30<br />
-    ‧ 超過 35cm +50<br />
-    ‧ 到腰 +200<br /><br />
+        <div class="item"><span class="highlight">【洗髮】</span></div>
+        <div class="item">芳香洗 / 假日洗　$499 up</div>
+        <div class="item">健康洗　$799 up</div>
+        <div class="item">Spa 舒壓洗　$1699 up</div>
+        <div class="item">法式 SPA 洗　$2199 up</div>
 
-    <b>【剪髮】</b><br />
-    蛋蛋老師　$900<br />
-    男仕 / JC 老師　$600<br />
-    秀霞老師　$600<br />
-    店長安排<br />
-    安安　$500<br />
-    小雨　$500<br />
-    佩佩　$500<br />
-    
-    <div class="note">《 曼都板新店 》</div>
-</div>
+        <div class="item highlight" style="margin-top:14px;">＋ 長度加價：</div>
+        <div class="item">肩下 25cm +30</div>
+        <div class="item">超過 35cm +50</div>
+        <div class="item">到腰 +200</div>
 
-<!-- 預約須知 -->
-<div class="content page" id="page1" style="display:none;">
-    <h2>✨ 預約須知 ✨</h2>
+        <div class="item highlight" style="margin-top:18px;">【剪髮】</div>
+        <div class="item">蛋蛋老師　$900</div>
+        <div class="item">男仕 / JC 老師　$600</div>
+        <div class="item">秀霞老師　$600</div>
 
-    ✔ 請提供：姓名、生日、電話、2-3 個想要的時間段（基本資料）<br /><br />
+        <div class="item highlight" style="margin-top:18px;">店長安排：</div>
+        <div class="item">安安　$500</div>
+        <div class="item">小雨　$500</div>
+        <div class="item">佩佩　$500</div>
 
-    <b>剪髮：</b><br />
-    ‧ 建議不要穿帽 T、不要穿高領，以免不方便裁剪<br /><br />
+        <div class="item" style="margin-top:20px; color:#a0846b;">《 曼都板新店 》</div>
+    </div>
 
-    <b>染髮：</b><br />
-    ‧ 避免穿白色衣服，避免不小心沾染<br /><br />
+    <!-- 內容：預約須知 -->
+    <div class="content" id="notice" style="display:none;">
+        <h2>📌 預約須知</h2>
 
-    ✔ 老師跟您「確認時間後」才算預約成功<br /><br />
-
-    <div class="note">《 曼都板新店 》</div>
-</div>
-
-<script>
-function showTab(n) {
-    document.querySelectorAll(".tab").forEach((t,i)=>{
-        t.classList.toggle("active", i===n);
-    });
-    document.querySelectorAll(".page").forEach((p,i)=>{
-        p.style.display = (i===n ? "block" : "none");
-    });
-}
-</script>
+        <div class="item">・每週三固定公休</div>
+        <div class="item">・假日預約較滿，建議提前 1-3 天預約</div>
+        <div class="item">・如需取消預約，請提前告知</div>
+        <div class="item">・本店提供：洗髮、剪髮、燙染、護髮、頭皮 SPA</div>
+    </div>
 
 </body>
 </html>
