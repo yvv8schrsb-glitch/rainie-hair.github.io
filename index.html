@@ -210,6 +210,7 @@
     .card-sub {
       font-size: 12px;
       color: var(--text-light);
+      margin-top: 4px;
     }
 
     .price-line {
@@ -274,7 +275,8 @@
       margin: 4px 0;
     }
 
-    .detail ul {
+    .detail ul,
+    .detail ol {
       padding-left: 20px;
       margin: 4px 0 6px;
     }
@@ -360,16 +362,20 @@
     </header>
 
     <main>
-      <!-- 注意事項 -->
+      <!-- 注意事項（活潑版） -->
       <section class="tab-panel active" id="notice">
         <div class="section-block">
           <div class="section-title-row">
             <div class="section-title">注意事項</div>
             <div class="section-tag">Little Reminder</div>
           </div>
+
           <div class="card">
             <div class="card-header-row">
-              <div class="card-title">營業時間 ＆ 最後預約</div>
+              <div>
+                <div class="card-title">營業時間 & 最後預約</div>
+                <div class="card-sub">先記好時間，再來好好放鬆 ✨</div>
+              </div>
             </div>
             <ul class="note-list">
               <li>
@@ -383,14 +389,7 @@
               <li>
                 <span class="note-icon">📆</span>
                 <span class="note-text">
-                  每週 <strong>三</strong> 店休（請避開這天預約喔）。
-                </span>
-              </li>
-              <li>
-                <span class="note-icon">⏳</span>
-                <span class="note-text">
-                  因為座位數量少、人手有限，<strong>假日（五、六、日）</strong>多少會等待一下下，<br>
-                  真的很抱歉 ☹️ 無法久候的朋友，建議可以安排在平日來放鬆。
+                  每週<strong>三</strong>是我們充電休息日～記得避開這天預約喔 💛
                 </span>
               </li>
             </ul>
@@ -398,13 +397,35 @@
 
           <div class="card">
             <div class="card-header-row">
-              <div class="card-title">結帳方式</div>
+              <div>
+                <div class="card-title">假日小提醒</div>
+                <div class="card-sub">人多一點點，耐心多一點點 ♡</div>
+              </div>
+            </div>
+            <ul class="note-list">
+              <li>
+                <span class="note-icon">⏳</span>
+                <span class="note-text">
+                  因為座位數量少、人手有限，<strong>五、六、日</strong>人潮比較多，<br>
+                  有時候需要稍微等待一下下 🥺<br>
+                  如果比較不方便等待，建議可以安排<strong>平日</strong>來，體驗會更悠哉～
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header-row">
+              <div>
+                <div class="card-title">結帳方式</div>
+                <div class="card-sub">變漂亮之後，結帳也要順順的 🤍</div>
+              </div>
             </div>
             <ul class="note-list">
               <li>
                 <span class="note-icon">💳</span>
                 <span class="note-text">
-                  完成服務後，結帳可使用：<br>
+                  完成服務後，可使用：<br>
                   <strong>現金、LINE Pay、信用卡、Apple Pay、轉帳</strong>。
                 </span>
               </li>
@@ -413,15 +434,18 @@
 
           <div class="card">
             <div class="card-header-row">
-              <div class="card-title">一起維持舒服的環境</div>
+              <div>
+                <div class="card-title">一起維持舒服的環境</div>
+                <div class="card-sub">大家一起小聲一點，放鬆多一點 🌷</div>
+              </div>
             </div>
             <ul class="note-list">
               <li>
                 <span class="note-icon">🤍</span>
                 <span class="note-text">
-                  店內的每一位客人，都是來好好放鬆的～<br>
-                  麻煩大家講話音量與手機聲音<strong>稍微放小一點</strong>，<br>
-                  讓彼此都可以在舒服的氛圍裡好好變漂亮。
+                  店內的每一位客人，都是來好好充電、放空、變漂亮的～<br>
+                  麻煩大家講話與手機音量<strong>輕聲一點點</strong>，<br>
+                  讓每個人都可以在舒服的氛圍裡慢慢放鬆。
                 </span>
               </li>
             </ul>
@@ -442,7 +466,7 @@
           <div class="card">
             <div class="card-header-row">
               <div>
-                <div class="card-title">放鬆一下，換個好心情，從舒服洗髮開始。</div>
+                <div class="card-title">放鬆一下，從舒服洗髮開始</div>
                 <div class="card-sub">價格依長度調整，以現場報價為主。</div>
               </div>
             </div>
@@ -477,7 +501,14 @@
 
           <div class="card">
             <div class="card-header-row">
-              <div class="card-title">設計師剪髮</div>
+              <div>
+                <div class="card-title">設計師剪髮</div>
+                <div class="card-sub">
+                  每一位老師都有不同的擅長風格、不同類型的拿手作品。<br>
+                  預約時可以先告訴我們你想做的髮型、長度或氛圍，<br>
+                  幫你找到最適合、最懂你需求的設計師 ✂️
+                </div>
+              </div>
             </div>
             <div class="price-line">
               <span>蛋蛋老師</span>
@@ -550,7 +581,7 @@
               <div class="card-title">玫瑰酪梨護髮</div>
               <div class="price">$1,500</div>
             </div>
-            <div class="card-sub">適合：受損、乾燥、粗硬、易毛躁、燙後、漂後髮質。</div>
+            <div class="card-sub">適合：受損、乾燥、粗硬、毛躁、燙後、漂後受損。</div>
             <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
             <div class="detail">
               <p>專門給<strong>嚴重受損、燙後、漂後、乾燥髮</strong>做的深層修護。</p>
@@ -621,8 +652,8 @@
             <div class="detail">
               <p>想改善<strong>毛躁、乾燥、斷裂、漂後受損</strong>，這款「極光結構式護髮」是從髮芯開始修復的專業深層護理。</p>
               <p><strong>🔧 什麼是結構式護髮？</strong><br>
-                不是只有表面柔順，而是：
-                <br>補洞 → 重建髮絲彈性 → 強化韌度 → 上護膜鎖住營養，讓頭髮真的變健康、變亮、變好整理。
+                不是只有表面柔順，而是：<br>
+                補洞 → 重建髮絲彈性 → 強化韌度 → 上護膜鎖住營養。
               </p>
               <p><strong>✨ 效果一次到位</strong></p>
               <ul>
@@ -645,150 +676,150 @@
         </div>
 
         <!-- 頭皮 SPA -->
-<div class="section-block">
-  <div class="section-title-row">
-    <div class="section-title">頭皮 SPA</div>
-    <div class="section-tag">Scalp Spa</div>
-  </div>
+        <div class="section-block">
+          <div class="section-title-row">
+            <div class="section-title">頭皮 SPA</div>
+            <div class="section-tag">Scalp Spa</div>
+          </div>
 
-  <!-- TONUCIA -->
-  <div class="card">
-    <div class="card-header-row">
-      <div class="card-title">TONUCIA 櫻珞木泉能精華</div>
-      <div class="price-line" style="justify-content:flex-end;margin:0;">
-        <span class="duration">手技 25 分</span>
-        <span class="price">$1,500</span>
-      </div>
-    </div>
-    <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
-    <div class="detail">
-      <p>專為乾性頭皮、脆弱細髮、缺乏彈性設計。補水、逆齡、強韌三效合一。</p>
+          <!-- TONUCIA -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">TONUCIA 櫻珞木泉能精華</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">手技 20 分</span>
+                <span class="price">$1,500</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專為<strong>乾性頭皮、脆弱細髮、缺乏彈性</strong>設計的頭皮活化精華。補水、逆齡、強韌三效合一。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>深層保濕頭皮、改善乾燥脫屑</li>
+                <li>提升頭皮彈性，讓髮絲更堅韌不易斷</li>
+                <li>強化頭皮防禦力，延緩頭皮老化</li>
+                <li>調理油水平衡，使頭皮柔軟有彈性</li>
+              </ul>
+              <p>👉 感受：頭皮水潤、有彈性，髮絲更有精神感。</p>
+            </div>
+          </div>
 
-      <p><strong>✨ 主要功效</strong></p>
-      <ul>
-        <li>深層保濕頭皮、改善乾燥脫屑</li>
-        <li>提升頭皮彈性，讓髮絲更堅韌不易斷</li>
-        <li>強化頭皮防禦力，延緩頭皮老化</li>
-        <li>調理油水平衡，使頭皮柔軟有彈性</li>
-      </ul>
-    </div>
-  </div>
+          <!-- 紫苑草 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">紫苑草冰鎮舒緩 SPA</div>
+            <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">手技 30 分</span>
+                <span class="price">$1,600</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專門給<strong>敏感頭皮、緊繃、悶熱、容易刺癢</strong>的人使用，冰鎮涼感能瞬間降溫，舒緩不適。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>鎮定敏感、舒緩乾癢不適</li>
+                <li>瞬間降溫，減少悶熱與緊繃感</li>
+                <li>強化頭皮防禦力、不容易再刺激</li>
+                <li>提升頭皮含氧感，更輕透舒服</li>
+              </ul>
+            </div>
+          </div>
 
-  <!-- 紫苑草 -->
-  <div class="card">
-    <div class="card-header-row">
-      <div class="card-title">紫苑草冰鎮舒緩 SPA</div>
-      <div class="price-line" style="justify-content:flex-end;margin:0;">
-        <span class="duration">手技 25 分</span>
-        <span class="price">$1,500</span>
-      </div>
-    </div>
-    <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
-    <div class="detail">
-      <p>專門給敏感頭皮、緊繃、悶熱、容易刺癢的頭皮使用。</p>
+          <!-- 洋甘菊 SPA -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">洋甘菊精油 SPA（敏感修護）</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">手技 30 分</span>
+                <span class="price">$1,600</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>適合：敏弱、易紅、乾癢、刺痛、頭皮緊繃的人。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>舒緩敏感、改善頭皮不適</li>
+                <li>抗紅、抗壓，減少乾燥脫屑</li>
+                <li>增加頭皮彈性、提升保護力</li>
+                <li>促進循環，使頭皮更健康穩定</li>
+              </ul>
+              <p>✨ 效果感受：柔軟、放鬆、不緊繃，敏感感降低。</p>
+            </div>
+          </div>
 
-      <p><strong>✨ 主要功效</strong></p>
-      <ul>
-        <li>鎮定敏感、舒緩乾癢不適</li>
-        <li>瞬間降溫，減少悶熱與緊繃感</li>
-        <li>強化頭皮防禦力</li>
-        <li>提升頭皮含氧感，更輕透舒服</li>
-      </ul>
-    </div>
-  </div>
+          <!-- 薄荷 SPA -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">薄荷精油 SPA（活化控油）</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">手技 30 分</span>
+                <span class="price">$1,600</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>適合：出油快、頭皮悶、扁塌、容易疲勞頭皮的人。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>平衡頭皮 PH 值，調整油脂</li>
+                <li>清爽不黏膩，改善悶熱與異味</li>
+                <li>促進頭皮循環、增加含氧感</li>
+                <li>醒腦舒壓、增強抗菌力</li>
+                <li>讓髮根更蓬鬆、精神感提升</li>
+              </ul>
+              <p>✨ 效果感受：涼爽、清新、透氣，頭皮很輕鬆。</p>
+            </div>
+          </div>
 
-  <!-- 洋甘菊 SPA -->
-  <div class="card">
-    <div class="card-header-row">
-      <div class="card-title">洋甘菊精油 SPA（敏感修護）</div>
-      <div class="price-line" style="justify-content:flex-end;margin:0;">
-        <span class="duration">手技 30 分</span>
-        <span class="price">$1,600</span>
-      </div>
-    </div>
-    <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
-    <div class="detail">
-      <p>適合敏弱、易紅、乾癢、刺痛的人。</p>
+          <!-- 淨化 SPA -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">淨化精油 SPA</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">手技 30 分</span>
+                <span class="price">$1,600</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專為「出油、悶熱、堵塞、易長頭皮痘」的頭皮設計，深層淨化＋溫和舒緩。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>深層淨化頭皮，排掉油脂與髒污</li>
+                <li>舒緩緊繃、減少悶熱不適</li>
+                <li>改善頭皮異味與油膩感</li>
+                <li>提升頭皮呼吸感，讓髮根更蓬鬆</li>
+                <li>平衡油脂分泌，延緩出油時間</li>
+              </ul>
+            </div>
+          </div>
 
-      <p><strong>✨ 主要功效</strong></p>
-      <ul>
-        <li>舒緩敏感、改善頭皮不適</li>
-        <li>抗紅抗壓、減少乾燥脫屑</li>
-        <li>增加頭皮彈性、提升保護力</li>
-        <li>促進循環，使頭皮更健康穩定</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 薄荷 SPA -->
-  <div class="card">
-    <div class="card-header-row">
-      <div class="card-title">薄荷精油 SPA（活化控油）</div>
-      <div class="price-line" style="justify-content:flex-end;margin:0;">
-        <span class="duration">手技 30 分</span>
-        <span class="price">$1,600</span>
-      </div>
-    </div>
-    <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
-    <div class="detail">
-      <p>適合出油快、悶熱、扁塌的人。</p>
-
-      <p><strong>✨ 主要功效</strong></p>
-      <ul>
-        <li>平衡頭皮 PH 值、調整油脂</li>
-        <li>改善悶熱與異味、不黏膩</li>
-        <li>促進頭皮循環、增加含氧感</li>
-        <li>讓髮根更蓬鬆、精神感提升</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 淨化 SPA -->
-  <div class="card">
-    <div class="card-header-row">
-      <div class="card-title">淨化精油 SPA</div>
-      <div class="price-line" style="justify-content:flex-end;margin:0;">
-        <span class="duration">手技 30 分</span>
-        <span class="price">$1,600</span>
-      </div>
-    </div>
-    <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
-    <div class="detail">
-      <p>專為出油、悶熱、堵塞、容易長頭皮痘的頭皮設計。</p>
-
-      <p><strong>✨ 主要功效</strong></p>
-      <ul>
-        <li>深層淨化頭皮、排掉油脂與髒污</li>
-        <li>舒緩緊繃、減少悶熱不適</li>
-        <li>改善頭皮異味與油膩感</li>
-        <li>延緩出油、頭皮更清爽</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- AC 精油 SPA -->
-  <div class="card">
-    <div class="card-header-row">
-      <div class="card-title">AC 精油頭皮舒壓課程</div>
-      <div class="price-line" style="justify-content:flex-end;margin:0;">
-        <span class="duration">手技 30 分</span>
-        <span class="price">$1,700</span>
-      </div>
-    </div>
-    <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
-    <div class="detail">
-      <p>使用法國雙重有機認證精油，改善循環不良、壓力性落髮。</p>
-
-      <p><strong>✨ 主要功效</strong></p>
-      <ul>
-        <li>促進循環、改善代謝</li>
-        <li>預防落髮、強化毛囊</li>
-        <li>深層放鬆、舒緩頭皮壓力</li>
-        <li>提升含氧感、減少沉重悶脹感</li>
-      </ul>
-    </div>
-  </div>
-</div>
+          <!-- AC 精油 SPA -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">AC 精油頭皮舒壓課程</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">手技 30 分</span>
+                <span class="price">$1,700</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>使用<strong>法國雙重有機認證精油</strong>，預防落髮、提升循環代謝、深層放鬆頭皮。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>促進循環，改善頭皮代謝差</li>
+                <li>預防落髮、強化毛囊</li>
+                <li>放鬆緊繃頭皮，舒緩壓力疲勞</li>
+                <li>提升含氧感，減少沉重與悶脹感</li>
+                <li>調理油脂，讓頭皮更清爽健康</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
         <!-- 養護 -->
         <div class="section-block">
@@ -839,7 +870,7 @@
         </div>
       </section>
 
-      <!-- 預約須知 -->
+      <!-- 預約須知（活潑版） -->
       <section class="tab-panel" id="booking">
         <div class="section-block">
           <div class="section-title-row">
@@ -849,13 +880,18 @@
 
           <div class="card">
             <div class="card-header-row">
-              <div class="card-title">基本資料</div>
+              <div>
+                <div class="card-title">基本資料怎麼填</div>
+                <div class="card-sub">資訊給越完整，幫你安排越順利 (๑•̀ㅂ•́)و✧</div>
+              </div>
             </div>
             <ul class="note-list">
               <li>
                 <span class="note-icon">📝</span>
                 <span class="note-text">
-                  預約時請填寫：<strong>名字、生日、電話</strong>，並提供 <strong>2–3 個想要的時段</strong>，方便我們幫你安排。
+                  預約時請提供：<br>
+                  <strong>名字、生日、電話，並給 2～3 個希望的時段</strong>。<br>
+                  （例如：平日下午兩點後、六日早上等）
                 </span>
               </li>
             </ul>
@@ -863,13 +899,17 @@
 
           <div class="card">
             <div class="card-header-row">
-              <div class="card-title">剪髮小提醒</div>
+              <div>
+                <div class="card-title">剪髮小提醒</div>
+                <div class="card-sub">衣服穿對，剪髮就更順利 ✂️</div>
+              </div>
             </div>
             <ul class="note-list">
               <li>
                 <span class="note-icon">💇‍♀️</span>
                 <span class="note-text">
-                  建議不要穿<strong>帽 T 或高領上衣</strong>，會比較好裁剪，也比較不會卡在衣服上。
+                  建議不要穿<strong>帽 T、連帽外套或高領上衣</strong>，<br>
+                  比較不會卡在領口，也能剪得更俐落好看。
                 </span>
               </li>
             </ul>
@@ -877,13 +917,17 @@
 
           <div class="card">
             <div class="card-header-row">
-              <div class="card-title">染髮小提醒</div>
+              <div>
+                <div class="card-title">染髮小提醒</div>
+                <div class="card-sub">顏色很美，衣服也要平安回家 🤭</div>
+              </div>
             </div>
             <ul class="note-list">
               <li>
                 <span class="note-icon">🎨</span>
                 <span class="note-text">
-                  建議不要穿<strong>白色衣服</strong>，以免不小心沾染到顏料。
+                  建議不要穿<strong>白色衣服</strong>，以免不小心沾染到顏料。<br>
+                  可以選擇深色或不怕髒的上衣，會比較安心。
                 </span>
               </li>
             </ul>
@@ -891,13 +935,17 @@
 
           <div class="card">
             <div class="card-header-row">
-              <div class="card-title">預約成立條件</div>
+              <div>
+                <div class="card-title">預約什麼時候算成功？</div>
+                <div class="card-sub">已讀不代表預約好，要等我們說「確認時間」喔 ✔</div>
+              </div>
             </div>
             <ul class="note-list">
               <li>
                 <span class="note-icon">✅</span>
                 <span class="note-text">
-                  以<strong>老師或櫃台回覆「確認好時間」</strong>為主，才算預約成功喔。
+                  以<strong>設計師或櫃檯回覆「已確認時間」</strong>為主，才算預約完成。<br>
+                  若還在互相喬時間，就代表時段還沒固定，可以再一起調整 👍
                 </span>
               </li>
             </ul>
