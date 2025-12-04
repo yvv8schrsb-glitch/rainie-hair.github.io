@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>曼都板新店｜價目表 & 注意事項</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>曼都板新店｜價目表・注意事項</title>
 
 <style>
-/* ----------- 全站色彩與字型 ----------- */
+/* ----------- 奶油系色彩 ----------- */
 :root {
   --bg: #fff8ef;
   --card: #ffffff;
@@ -18,66 +18,57 @@
   --shadow: 0 8px 20px rgba(0,0,0,0.06);
 }
 
+/* ----------- 基本設定 ----------- */
 body {
   margin: 0;
   padding: 0;
   background: var(--bg);
-  font-family: "DFKai-SB", "PingFang TC", "Noto Sans TC", sans-serif;
+  font-family: "DFKai-SB","PingFang TC","Noto Sans TC",sans-serif;
   color: var(--text-main);
 }
-
-/* ----------- 整體容器 ----------- */
 .wrap {
   max-width: 520px;
   margin: 20px auto;
   padding: 0 16px 40px;
 }
 
-/* ----------- Header（可愛奶油小卡） ----------- */
+/* ----------- Header（可愛奶油漸層卡片） ----------- */
 .header {
-  background: linear-gradient(135deg, #2c2623, #3e3632);
-  padding: 24px 20px 32px;
+  background: linear-gradient(135deg,#2c2623,#423a36);
+  padding: 26px 20px 32px;
   border-radius: 30px;
+  color: #fff7ec;
   box-shadow: var(--shadow);
-  color: #fff8ef;
-  text-align: center;
   position: relative;
+  text-align: center;
   overflow: hidden;
 }
-
-/* 插畫圓點 */
-.header::before,
-.header::after {
+.header::before, .header::after {
   content: "";
   position: absolute;
   border-radius: 50%;
   opacity: 0.15;
 }
 .header::before {
-  width: 160px;
-  height: 160px;
-  background: #ffe1b8;
-  top: -45px;
-  right: -35px;
+  width: 160px; height: 160px;
+  background: #ffe0b8;
+  top: -45px; right: -35px;
 }
 .header::after {
-  width: 110px;
-  height: 110px;
-  background: #ffc8c8;
-  bottom: -40px;
-  left: -30px;
+  width: 110px; height: 110px;
+  background: #ffcaca;
+  bottom: -40px; left: -30px;
 }
 
 .header h1 {
   margin: 0;
-  letter-spacing: 2px;
   font-size: 22px;
+  letter-spacing: 2px;
 }
 .header .en {
   font-size: 13px;
+  letter-spacing: 0.28em;
   opacity: 0.9;
-  letter-spacing: 0.3em;
-  margin-top: 3px;
 }
 .header .slogan {
   margin-top: 8px;
@@ -89,93 +80,79 @@ body {
 .tabs {
   display: flex;
   justify-content: center;
-  margin: 20px 0 16px;
   gap: 10px;
+  margin: 22px 0 16px;
 }
-
 .tab {
   padding: 10px 18px;
   background: var(--accent2);
   border-radius: 999px;
   font-size: 15px;
   cursor: pointer;
-  border: 1px solid #f5d7c1;
   color: #7a5647;
+  border: 1px solid #f4d7c0;
   transition: 0.15s;
 }
-
 .tab.active {
   background: var(--accent);
   font-weight: bold;
   transform: translateY(-2px);
 }
 
-/* ----------- 卡片 ----------- */
+/* ----------- 頁面卡片 ----------- */
 .page {
   background: var(--card);
-  padding: 22px 18px 26px;
+  padding: 22px 20px 28px;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
   border: 2px solid #ffe7d2;
+  box-shadow: var(--shadow);
   margin-bottom: 28px;
 }
+.hidden { display:none; }
 
 .section-title {
   font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
-
 .section-subtitle {
   font-size: 15px;
   color: var(--text-sub);
 }
-
 .divider {
-  height: 1px;
-  background: #f1dcc5;
-  margin: 14px 0;
+  height:1px;
+  background:#f1dcc5;
+  margin:16px 0;
 }
 
-/* ----------- 價目表 Grid ----------- */
+/* 價目表 Grid */
 .price-grid {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  row-gap: 10px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:10px;
   font-size: 15px;
 }
+.price-label {}
+.price-value { font-weight:600; }
 
-.price-label {
-  color: var(--text-main);
-}
-
-.price-value {
-  font-weight: 600;
-}
-
-/* ----------- 可展開區 ----------- */
+/* 展開樣式 */
 details summary {
-  cursor: pointer;
-  font-weight: 600;
-  margin-top: 12px;
+  cursor:pointer;
+  font-weight:600;
+  margin-top:12px;
 }
 details p, details ul {
-  margin: 10px 0 0;
-  font-size: 14px;
+  font-size:14px;
+  margin-top:10px;
 }
-
-/* ----------- 隱藏頁 ----------- */
-.hidden { display:none; }
 </style>
 
 <script>
-// 分頁切換功能
-function showTab(tab){
-  document.querySelectorAll(".page").forEach(p => p.classList.add("hidden"));
-  document.getElementById(tab).classList.remove("hidden");
+function showTab(t){
+  document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));
+  document.getElementById(t).classList.remove("hidden");
 
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-  document.getElementById("tab-"+tab).classList.add("active");
+  document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
+  document.getElementById("tab-"+t).classList.add("active");
 }
 </script>
 </head>
@@ -183,70 +160,66 @@ function showTab(tab){
 <body>
 <div class="wrap">
 
-<!-- Header -->
+<!-- ----- Header ----- -->
 <div class="header">
   <h1>《 曼都板新店 》</h1>
   <div class="en">HAIR</div>
   <div class="slogan">想變美變漂亮，就來找我們 ♡</div>
 </div>
 
-<!-- Tabs -->
+<!-- ----- Tabs：三分頁 ----- -->
 <div class="tabs">
   <div id="tab-notice" class="tab active" onclick="showTab('notice')">注意事項</div>
   <div id="tab-price" class="tab" onclick="showTab('price')">價目表</div>
-  <div id="tab-rule"  class="tab" onclick="showTab('rule')">預約須知</div>
+  <div id="tab-rule" class="tab" onclick="showTab('rule')">預約須知</div>
 </div>
 
-<!-- ----------- 注意事項 PAGE（第一頁） ----------- -->
+<!-- ============================ -->
+<!--        注意事項 PAGE         -->
+<!-- ============================ -->
 <div id="notice" class="page">
 
   <h2 class="section-title">🔔 注意事項</h2>
 
   <div class="price-grid">
-    <div class="price-label">營業時間</div>
-    <div class="price-value">09:30 - 18:00</div>
-
-    <div class="price-label">最後預約（洗髮）</div>
-    <div class="price-value">17:30</div>
-
-    <div class="price-label">最後預約（燙染）</div>
-    <div class="price-value">16:30</div>
+    <div class="price-label">營業時間</div><div class="price-value">09:30 - 18:00</div>
+    <div class="price-label">洗髮最後預約</div><div class="price-value">17:30</div>
+    <div class="price-label">燙染最後預約</div><div class="price-value">16:30</div>
   </div>
 
   <div class="divider"></div>
 
-  <p>・假日座位少、人手有限，可能需稍候<br>
-     ・無法等待的客人建議預約平日</p>
-
+  <p>・假日人手有限，座位少可能會稍候</p>
+  <p>・無法等待者建議預約平日</p>
   <p>・每週三固定公休</p>
 
   <p>・結帳方式：現金、Line Pay、信用卡、Apple Pay、轉帳</p>
-
   <p>・店內為放鬆空間，請降低說話與手機音量 🤫</p>
 
 </div>
 
-<!-- ----------- 價目表 PAGE（第二頁） ----------- -->
+<!-- ============================ -->
+<!--         價目表 PAGE          -->
+<!-- ============================ -->
 <div id="price" class="page hidden">
 
-  <h2 class="section-title">✨ 洗髮項目</h2>
+  <h2 class="section-title">🛁 洗髮</h2>
 
   <div class="price-grid">
-    <div class="price-label">芳香洗 / 假日洗</div><div class="price-value">$499 up</div>
+    <div class="price-label">芳香洗／假日洗</div><div class="price-value">$499 up</div>
     <div class="price-label">健康洗</div><div class="price-value">$799 up</div>
-    <div class="price-label">Spa 舒壓洗</div><div class="price-value">$1,699 up</div>
-    <div class="price-label">法式 Spa 洗</div><div class="price-value">$2,199 up</div>
+    <div class="price-label">SPA 舒壓洗</div><div class="price-value">$1,699 up</div>
+    <div class="price-label">法式 SPA 洗</div><div class="price-value">$2,199 up</div>
   </div>
 
   <div class="divider"></div>
 
-  <h2 class="section-title">✂️ 剪髮</h2>
 
+  <h2 class="section-title">✂️ 剪髮</h2>
   <div class="price-grid">
     <div class="price-label">蛋蛋老師</div><div class="price-value">$900</div>
     <div class="price-label">男仕／JC 老師</div><div class="price-value">$600</div>
     <div class="price-label">秀霞老師</div><div class="price-value">$600</div>
-
     <div class="price-label">安安（店長安排）</div><div class="price-value">$500</div>
     <div class="price-label">小雨（店長安排）</div><div class="price-value">$500</div>
     <div class="price-label">佩佩（店長安排）</div><div class="price-value">$500</div>
@@ -261,15 +234,15 @@ function showTab(tab){
     <div class="price-label">整體造型</div><div class="price-value">依設計師溝通</div>
   </div>
 
-
-  <!-- ---- SPA ＋ 養護精油 ---- -->
   <div class="divider"></div>
-  <h2 class="section-title">🌿 頭皮 SPA・養護精油</h2>
 
+  <h2 class="section-title">🌿 頭皮 SPA・養護精華</h2>
+
+  <!-- SPA -->
   <div class="price-grid">
-    <div class="price-label">頭皮 SPA（20 分鐘）</div><div class="price-value">$1,200</div>
-    <div class="price-label">頭皮 SPA（25 分鐘）</div><div class="price-value">$1,500</div>
-    <div class="price-label">頭皮 SPA（30 分鐘）</div><div class="price-value">$1,600</div>
+    <div class="price-label">頭皮 SPA（20 分）</div><div class="price-value">$1,200</div>
+    <div class="price-label">頭皮 SPA（25 分）</div><div class="price-value">$1,500</div>
+    <div class="price-label">頭皮 SPA（30 分）</div><div class="price-value">$1,600</div>
     <div class="price-label">法式 SPA</div><div class="price-value">$1,700</div>
   </div>
 
@@ -277,52 +250,52 @@ function showTab(tab){
 
   <h3 class="section-subtitle" style="font-weight:600;">養護精華（頭皮安瓶）</h3>
 
+  <!-- 蘋果幹細胞 -->
   <details>
     <summary>蘋果幹細胞頭皮安瓶 $1200</summary>
-    <p>
-      專門「活化毛囊、改善落髮」的頭皮安瓶，  
-      讓頭髮長得更強壯、不容易掉。
-    </p>
+    <p>專門活化毛囊、改善落髮，從根源調理頭皮。</p>
     <ul>
-      <li>活絡毛囊，促進新生髮芽</li>
+      <li>活絡毛囊，新生髮芽</li>
       <li>減少落髮、強化髮根抓力</li>
       <li>改善頭皮緊繃、乾癢</li>
-      <li>提高頭皮代謝</li>
+      <li>提升頭皮代謝</li>
     </ul>
-    <p>👉 做完感覺：掉髮變少、髮根更挺、頭皮更舒服。</p>
+    <p>👉 感覺：掉髮變少、髮根變挺、頭皮更舒服</p>
   </details>
 
+  <!-- 亞美尼斯 -->
   <details>
     <summary>亞美尼斯髮根強化安瓶 $1200</summary>
-    <p>
-      專門改善「落髮、髮根軟、髮量變少」，  
-      讓毛囊重新呼吸、強壯生長。
-    </p>
+    <p>針對落髮、髮量少、髮根軟的深層強化安瓶。</p>
     <ul>
       <li>減少落髮、增加髮根抓力</li>
-      <li>改善脆弱易斷的髮根</li>
+      <li>改善易斷裂的髮根</li>
       <li>延長健康生長期</li>
-      <li>髮量看起來更豐、髮根更挺</li>
+      <li>髮量視覺明顯更豐</li>
     </ul>
-    <p>👉 很適合正在掉髮、髮絲變細的客人。</p>
+    <p>👉 適合髮絲變細、正在掉髮的客人</p>
   </details>
 
 </div>
 
-<!-- ----------- 預約須知 PAGE（第三頁） ----------- -->
+<!-- ============================ -->
+<!--        預約須知 PAGE         -->
+<!-- ============================ -->
 <div id="rule" class="page hidden">
-  <h2 class="section-title">📄 預約須知</h2>
 
-  <p>請提供：名字、生日、電話、2–3 個想要的時段。</p>
+  <h2 class="section-title">📒 預約須知</h2>
 
-  <h3>剪髮提醒</h3>
-  <p>建議不要穿帽T、高領，方便裁剪。</p>
+  <p>請提供：名字、生日、電話、2–3個想要的時段。</p>
 
-  <h3>染髮提醒</h3>
-  <p>請避免穿白色衣服，避免沾染。</p>
+  <h3>✂️ 剪髮提醒</h3>
+  <p>建議不要穿帽T、高領，以免影響裁剪。</p>
 
-  <h3>預約成立條件</h3>
-  <p>以「設計師與你確認時間」為主，才算預約成功。</p>
+  <h3>🎨 染髮提醒</h3>
+  <p>避免穿白色衣服，以免沾染。</p>
+
+  <h3>✔️ 預約成立條件</h3>
+  <p>須以「設計師確認時間」為主，才算預約成功。</p>
+
 </div>
 
 </div>
