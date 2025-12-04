@@ -1,166 +1,607 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>曼都板新店｜價目表 & 預約須知</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>曼都板新店｜價目表 & 預約須知</title>
+  <style>
+    /* ===== 基本設定 ===== */
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-<style>
     body {
-        margin: 0;
-        padding: 0;
-        font-family: "PingFang TC", "Noto Sans TC", sans-serif;
-        background: #f9f4ec; /* 奶油底 */
-        color: #5a463c;
+      margin: 0;
+      padding: 0;
+      font-family: "PingFang TC", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", sans-serif;
+      background: linear-gradient(135deg, #fdf6ec, #f9efe2);
+      color: #4a3f35;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
     }
 
-    /* 上方 Tabs */
+    /* ===== 背景可愛插畫感（純 CSS 小圖案，不會糊）===== */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 999px;
+      opacity: 0.18;
+      z-index: 0;
+      pointer-events: none;
+    }
+    body::before {
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle at 30% 30%, #ffe6c9, #f7d6b8);
+      top: -40px;
+      left: -40px;
+    }
+    body::after {
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle at 70% 70%, #ffd3dd, #f5b6c4);
+      bottom: -60px;
+      right: -40px;
+    }
+
+    /* ===== 外框卡片 ===== */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      margin: 24px 16px 32px;
+      background: rgba(255, 252, 247, 0.95);
+      border-radius: 26px;
+      box-shadow:
+        0 18px 35px rgba(170, 140, 110, 0.18),
+        0 0 0 1px rgba(255, 255, 255, 0.7);
+      overflow: hidden;
+      border: 1px solid rgba(222, 198, 170, 0.8);
+    }
+
+    /* ===== 頂部標題區 ===== */
+    .card-header {
+      background: #4b4038;
+      color: #fdf6ec;
+      padding: 18px 20px 16px;
+      text-align: center;
+      position: relative;
+    }
+    .shop-name {
+      font-size: 20px;
+      letter-spacing: 0.28em;
+      text-indent: 0.28em;
+      font-weight: 600;
+    }
+    .subtitle {
+      margin-top: 6px;
+      font-size: 11px;
+      opacity: 0.8;
+    }
+    .corner-tag {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      opacity: 0.8;
+    }
+
+    /* ===== 分頁（價目表 / 預約須知）===== */
     .tabs {
-        display: flex;
-        background: #ffe9d6; /* 奶茶橘 */
-        padding: 10px 0;
-        justify-content: center;
-        border-bottom: 2px solid #f4d2b7;
-        position: sticky;
-        top: 0;
-        z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 16px 6px;
+      background: linear-gradient(to bottom, #fdf6ec, #f9efe2);
+      border-bottom: 1px solid rgba(222, 198, 170, 0.6);
+    }
+    .tab-btn {
+      flex: 0 0 auto;
+      padding: 8px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(180, 150, 120, 0.5);
+      background: #fdf6ec;
+      font-size: 14px;
+      color: #6a5747;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(150, 120, 90, 0.15);
+      transition: all 0.18s ease;
+    }
+    .tab-btn span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #d4b08a;
+      opacity: 0.7;
+    }
+    .tab-btn.active {
+      background: #f2ddc1;
+      color: #3f3228;
+      border-color: #c79c70;
+      box-shadow:
+        0 3px 8px rgba(170, 130, 90, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+      transform: translateY(-1px);
     }
 
-    .tab {
-        padding: 10px 18px;
-        margin: 0 8px;
-        border-radius: 20px;
-        font-size: 17px;
-        cursor: pointer;
-        color: #7b5a4d;
-        transition: 0.2s;
+    /* ===== 內容容器 ===== */
+    .content-wrapper {
+      padding: 10px 14px 18px;
+    }
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.22s ease-out;
+    }
+    .tab-panel.active {
+      display: block;
     }
 
-    .tab.active {
-        background: #ffcfaa; /* 更活潑的杏仁橘 */
-        color: #4a382f;
-        font-weight: 700;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* 內容白卡片 */
-    .content {
-        background: #ffffff;
-        margin: 18px auto;
-        padding: 22px 18px 26px;
-        max-width: 520px;
-        border-radius: 20px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-        border: 2px solid #ffe3c8;
-        line-height: 1.8;
+    /* ===== 小標題區塊 ===== */
+    .section {
+      background: rgba(255, 252, 247, 0.9);
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(222, 198, 170, 0.8);
+      box-shadow: 0 5px 12px rgba(180, 140, 110, 0.13);
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      gap: 8px;
+    }
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #4a3f35;
+    }
+    .section-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #fbe8d5;
+      color: #86624a;
+      white-space: nowrap;
+    }
+    .section-sub {
+      font-size: 11px;
+      color: #8b7562;
+      margin-bottom: 6px;
     }
 
-    h2 {
-        text-align: center;
-        font-size: 22px;
-        margin-bottom: 16px;
-        color: #d77f52; /* 橘色亮點 */
+    /* ===== 價目列表格感 ===== */
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .price-table th {
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a2876d;
+      padding: 4px 0 6px;
+    }
+    .price-table td {
+      padding: 4px 0;
+    }
+    .price-name {
+      color: #4a3f35;
+    }
+    .price-note {
+      font-size: 11px;
+      color: #8f7865;
+    }
+    .price-value {
+      text-align: right;
+      white-space: nowrap;
+      font-weight: 600;
+      color: #6c5440;
+    }
+    .divider {
+      border-top: 1px dashed rgba(201, 172, 142, 0.8);
+      margin: 6px 0;
     }
 
-    .tag {
-        font-size: 18px;
-        margin-top: 12px;
-        font-weight: bold;
-        color: #c46a44;
+    /* ===== 說明文字 & 列表 ===== */
+    p {
+      font-size: 12px;
+      line-height: 1.6;
+      margin: 4px 0 6px;
+    }
+    ul {
+      padding-left: 18px;
+      margin: 4px 0 6px;
+    }
+    ul li {
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 2px;
+    }
+    .hint {
+      font-size: 11px;
+      color: #a1876f;
+      margin-top: 4px;
     }
 
-    .item {
-        margin: 6px 0;
-        font-size: 16px;
+    /* ===== 預約須知樣式 ===== */
+    .bullet-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 4px;
+      margin-bottom: 3px;
+      color: #4a3f35;
+    }
+    .bullet-list {
+      padding-left: 16px;
+      margin: 0 0 4px;
+    }
+    .bullet-list li {
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 2px;
     }
 
-    .shop {
-        margin-top: 20px;
-        text-align: center;
-        font-size: 14px;
-        letter-spacing: 2px;
-        color: #b89174;
+    /* ===== 底部小字 ===== */
+    .footer {
+      text-align: center;
+      font-size: 10px;
+      color: #a1876f;
+      padding: 4px 0 2px;
+      border-top: 1px dashed rgba(201, 172, 142, 0.7);
+      margin-top: 6px;
     }
-
-    .hidden {
-        display: none;
-    }
-</style>
-
-<script>
-function showTab(tab){
-    document.getElementById("price").classList.add("hidden");
-    document.getElementById("notice").classList.add("hidden");
-
-    document.getElementById(tab).classList.remove("hidden");
-
-    document.getElementById("tabPrice").classList.remove("active");
-    document.getElementById("tabNotice").classList.remove("active");
-
-    document.getElementById("tab" + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add("active");
-}
-</script>
+  </style>
 </head>
 
 <body>
+  <main class="card">
+    <!-- 頂部 -->
+    <header class="card-header">
+      <div class="corner-tag">《 曼都板新店 》</div>
+      <div class="shop-name">RAINIE HAIR</div>
+      <div class="subtitle">想放鬆、想變美，就來找小雨好好寵一下自己 ♡</div>
+    </header>
 
-<!-- Tabs 選單 -->
-<div class="tabs">
-    <div class="tab active" id="tabPrice" onclick="showTab('price')">價目表</div>
-    <div class="tab" id="tabNotice" onclick="showTab('notice')">預約須知</div>
-</div>
+    <!-- 分頁按鈕 -->
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="price">
+        <span class="dot"></span> 價目表
+      </button>
+      <button class="tab-btn" data-tab="notice">
+        <span class="dot"></span> 預約須知
+      </button>
+    </nav>
 
-<!-- 價目表 -->
-<div class="content" id="price">
-    <h2>✨ 洗髮剪髮 價目表 ✨</h2>
+    <!-- 內容 -->
+    <section class="content-wrapper">
+      <!-- ===== 價目表分頁 ===== -->
+      <div class="tab-panel active" id="tab-price">
+        <!-- 洗髮 -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">洗髮</div>
+            <div class="section-tag">Scalp & Hair Wash</div>
+          </div>
+          <p class="section-sub">放鬆一下、換個好心情，從舒服洗開始。</p>
 
-    <div class="tag">【洗髮】</div>
-    <div class="item">芳香洗 / 假日洗　$499 up</div>
-    <div class="item">健康洗　$799 up</div>
-    <div class="item">Spa 舒壓洗　$1699 up</div>
-    <div class="item">法式 SPA 洗　$2199 up</div>
+          <table class="price-table">
+            <tr>
+              <th>服務項目</th>
+              <th style="text-align:right;">價格</th>
+            </tr>
+            <tr>
+              <td class="price-name">芳香洗／假日洗</td>
+              <td class="price-value">$499 up</td>
+            </tr>
+            <tr>
+              <td class="price-name">健康洗</td>
+              <td class="price-value">$799 up</td>
+            </tr>
+            <tr>
+              <td class="price-name">Spa 舒壓洗</td>
+              <td class="price-value">$1,699 up</td>
+            </tr>
+            <tr>
+              <td class="price-name">法式 Spa 洗</td>
+              <td class="price-value">$2,199 up</td>
+            </tr>
+          </table>
 
-    <div class="tag">＋ 長度加價</div>
-    <div class="item">肩下 25cm　+30</div>
-    <div class="item">超過 35cm　+50</div>
-    <div class="item">到腰　+200</div>
+          <div class="divider"></div>
+          <p class="price-note">
+            ⸺ 長度加價說明 ⸺<br>
+            肩下 25 公分內＋$30｜超過 35 公分＋$50｜到腰＋$200
+          </p>
+        </section>
 
-    <div class="tag">【剪髮】</div>
-    <div class="item">蛋蛋老師　$900</div>
-    <div class="item">男仕 / JC 老師　$600</div>
-    <div class="item">秀霞老師　$600</div>
-    <div class="item">安安　$500</div>
-    <div class="item">小雨　$500</div>
-    <div class="item">佩佩　$500</div>
+        <!-- 剪髮 -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">剪髮</div>
+            <div class="section-tag">Hair Cut</div>
+          </div>
+          <p class="section-sub">不同老師、不同風格，幫你找到最適合的樣子。</p>
 
-    <div class="shop">《 曼都板新店 》</div>
-</div>
+          <table class="price-table">
+            <tr>
+              <th>設計師</th>
+              <th style="text-align:right;">價格</th>
+            </tr>
+            <tr>
+              <td class="price-name">蛋蛋老師</td>
+              <td class="price-value">$900</td>
+            </tr>
+            <tr>
+              <td class="price-name">男仕／JC 老師</td>
+              <td class="price-value">$600</td>
+            </tr>
+            <tr>
+              <td class="price-name">秀霞老師</td>
+              <td class="price-value">$600</td>
+            </tr>
+          </table>
 
-<!-- 預約須知 -->
-<div class="content hidden" id="notice">
-    <h2>📌 預約須知</h2>
+          <div class="divider"></div>
 
-    <div class="tag">基本資料（請提供）</div>
-    <div class="item">・名字</div>
-    <div class="item">・生日</div>
-    <div class="item">・電話</div>
-    <div class="item">・2–3 個可預約時段</div>
+          <table class="price-table">
+            <tr>
+              <th>店長安排</th>
+              <th style="text-align:right;">價格</th>
+            </tr>
+            <tr>
+              <td class="price-name">安安</td>
+              <td class="price-value">$500</td>
+            </tr>
+            <tr>
+              <td class="price-name">小雨</td>
+              <td class="price-value">$500</td>
+            </tr>
+            <tr>
+              <td class="price-name">佩佩</td>
+              <td class="price-value">$500</td>
+            </tr>
+            <tr>
+              <td class="price-name">剪瀏海</td>
+              <td class="price-value">$100</td>
+            </tr>
+          </table>
+        </section>
 
-    <div class="tag">剪髮注意</div>
-    <div class="item">・請避免穿帽T、高領，影響裁剪</div>
+        <!-- 造型 -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">造型</div>
+            <div class="section-tag">Styling</div>
+          </div>
 
-    <div class="tag">染髮注意</div>
-    <div class="item">・請不要穿白色衣服，避免沾染</div>
+          <table class="price-table">
+            <tr>
+              <th>服務項目</th>
+              <th style="text-align:right;">價格</th>
+            </tr>
+            <tr>
+              <td class="price-name">電棒造型</td>
+              <td class="price-value">$100</td>
+            </tr>
+          </table>
+          <p class="hint">其他整體造型、活動造型，歡迎現場或私訊小雨溝通詢問 ♡</p>
+        </section>
 
-    <div class="tag">預約成功條件</div>
-    <div class="item">・老師與你確認時間後才算預約成功</div>
+        <!-- 護髮：奇蹟護 -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">護髮 · 奇蹟護</div>
+            <div class="section-tag">Miracle Care</div>
+          </div>
+          <p class="section-sub">
+            專門修護乾燥、分叉、毛躁的「即效型修護」。只要約 1 分鐘，髮絲立刻變柔亮、順滑好梳理。
+          </p>
 
-    <div class="tag">其他提醒</div>
-    <div class="item">・每週三固定公休</div>
-    <div class="item">・假日較滿，建議提前 1–3 天預約</div>
-    <div class="item">・如需取消預約，請提前告知</div>
+          <table class="price-table">
+            <tr>
+              <th>長度</th>
+              <th style="text-align:right;">價格</th>
+            </tr>
+            <tr>
+              <td class="price-name">短髮</td>
+              <td class="price-value">$1,500</td>
+            </tr>
+            <tr>
+              <td class="price-name">中長</td>
+              <td class="price-value">$2,000</td>
+            </tr>
+            <tr>
+              <td class="price-name">長髮</td>
+              <td class="price-value">$3,000</td>
+            </tr>
+          </table>
 
-    <div class="shop">《 曼都板新店 》</div>
-</div>
+          <p class="bullet-title">✨ 功效一次看懂</p>
+          <ul class="bullet-list">
+            <li>4 倍補水力：乾燥髮絲瞬間喝飽水。</li>
+            <li>8 倍彈性修護：髮芯變強韌，不易斷裂。</li>
+            <li>5 倍滑順力：立刻好梳、不打結。</li>
+          </ul>
+          <p class="hint">做完的感覺就是：順、亮、滑、柔、不炸毛。</p>
 
+          <p class="bullet-title">🌿 主要成分</p>
+          <ul class="bullet-list">
+            <li>玻尿酸、CMC：深層補水、鎖水。</li>
+            <li>乳酸、水解角質蛋白：讓髮芯恢復彈性。</li>
+            <li>水解小麥蛋白：修補受損表層、增加光澤。</li>
+          </ul>
+        </section>
+
+        <!-- 護髮：阿甘油髮膜 -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">護髮 · 阿甘油微晶修護髮膜</div>
+            <div class="section-tag">Argan Crystal Mask</div>
+          </div>
+
+          <table class="price-table">
+            <tr>
+              <th>項目</th>
+              <th style="text-align:right;">價格</th>
+            </tr>
+            <tr>
+              <td class="price-name">阿甘油微晶修護髮膜</td>
+              <td class="price-value">$1,600</td>
+            </tr>
+          </table>
+
+          <p>
+            阿甘油微晶修護髮膜是一款專門修復受損髮質的深層護髮，<br>
+            讓乾燥、毛躁、爆炸髮重新變得柔亮滑順。
+          </p>
+        </section>
+
+        <!-- 護髮：極光結構修護 -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">護髮 · 極光結構修護</div>
+            <div class="section-tag">Aurora Structural Care</div>
+          </div>
+
+          <table class="price-table">
+            <tr>
+              <th>長度</th>
+              <th style="text-align:right;">價格</th>
+            </tr>
+            <tr>
+              <td class="price-name">短髮</td>
+              <td class="price-value">$1,800</td>
+            </tr>
+            <tr>
+              <td class="price-name">中長</td>
+              <td class="price-value">$2,000</td>
+            </tr>
+            <tr>
+              <td class="price-name">長髮</td>
+              <td class="price-value">$2,500</td>
+            </tr>
+          </table>
+
+          <p>
+            想改善毛躁、乾燥、斷裂、漂後受損？<br>
+            這款「極光結構式護髮」是從髮芯開始修復的專業深層護理。
+          </p>
+
+          <p class="bullet-title">🔧 什麼是結構式護髮？</p>
+          <p>
+            不是只有表面柔順，而是：<br>
+            補洞 → 重建髮絲彈性 → 強化韌度 → 上護膜鎖住營養，<br>
+            讓頭髮真的變健康、變亮、變好整理。
+          </p>
+
+          <p class="bullet-title">✨ 效果一次到位</p>
+          <ul class="bullet-list">
+            <li>強韌度 +120%</li>
+            <li>保濕 +200%</li>
+            <li>光澤 +150%</li>
+            <li>柔順 +130%</li>
+            <li>彈性 +100%</li>
+          </ul>
+          <p class="hint">做完就是「亮、柔、滑、厚度 UP」那種好髮質。</p>
+
+          <p class="bullet-title">🧴 4 步驟專業流程</p>
+          <ol style="margin:4px 0 0 18px; padding-left:0;">
+            <li style="font-size:12px; line-height:1.6;">深層淨化（打開吸收通道）。</li>
+            <li style="font-size:12px; line-height:1.6;">修補髮芯結構（填補漂燙造成的空洞）。</li>
+            <li style="font-size:12px; line-height:1.6;">補充彈性與保水。</li>
+            <li style="font-size:12px; line-height:1.6;">外層鎖膜增亮。</li>
+          </ol>
+        </section>
+
+        <div class="footer">《 曼都板新店 · 價目表 》</div>
+      </div>
+
+      <!-- ===== 預約須知分頁 ===== -->
+      <div class="tab-panel" id="tab-notice">
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">預約須知</div>
+            <div class="section-tag">Booking Info</div>
+          </div>
+
+          <p class="section-sub">
+            小雨想跟你說幾件小小的事，讓我們彼此都更輕鬆順利 ♡
+          </p>
+
+          <p class="bullet-title">📝 基本資料</p>
+          <ul class="bullet-list">
+            <li>預約時請填寫：名字、生日、電話。</li>
+            <li>提供 2～3 個想要的時段，方便幫你安排。</li>
+          </ul>
+
+          <p class="bullet-title">💇‍♀️ 剪髮小提醒</p>
+          <ul class="bullet-list">
+            <li>建議不要穿帽 T 或高領上衣，方便裁剪、量長度。</li>
+          </ul>
+
+          <p class="bullet-title">🎨 染髮小提醒</p>
+          <ul class="bullet-list">
+            <li>不建議穿白色衣服，避免不小心沾染到色料。</li>
+          </ul>
+
+          <p class="bullet-title">✅ 預約成立條件</p>
+          <ul class="bullet-list">
+            <li>以「老師回覆並確認好時間」為主，才算預約成功。</li>
+          </ul>
+
+          <p class="bullet-title">⏰ 關於時間安排</p>
+          <ul class="bullet-list">
+            <li>每週三固定公休，這天小雨去充電不接客人。</li>
+            <li>假日預約較滿，建議提前 1～3 天預約比較保險。</li>
+            <li>如需取消或改期，請提前跟我們說一聲，真的非常感謝你 ♡</li>
+          </ul>
+        </section>
+
+        <div class="footer">《 曼都板新店 · 預約須知 》</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // 分頁切換
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabPanels = {
+      price: document.getElementById("tab-price"),
+      notice: document.getElementById("tab-notice")
+    };
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.dataset.tab;
+
+        tabButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        Object.keys(tabPanels).forEach(key => {
+          tabPanels[key].classList.toggle("active", key === target);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
