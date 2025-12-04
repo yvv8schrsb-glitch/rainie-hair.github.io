@@ -2,196 +2,140 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>曼都板新店｜價目表 & 預約須知</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>曼都板新店 ｜ HAIR 價目表 & 預約須知</title>
 
-  <!-- 可愛一點的標題＋好讀中文 -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <!-- 可愛圓圓字體（搭配系統字體） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-main: #fff7ec;
-      --bg-card: #fffdf8;
-      --bg-tab:  #f8e2c8;
-      --bg-tab-active: #ffe7c9;
-      --accent:  #f6bfa5;
-      --accent-deep: #e19b7c;
-      --text-main: #4a3f35;
-      --text-light: #8b7463;
-      --border-soft: #f1dcc5;
-      --shadow-soft: 0 8px 20px rgba(188, 148, 113, 0.18);
+      --bg-main: #f8f1e7;      /* 奶油背景 */
+      --bg-header: #f3ddc3;   /* 頂部奶茶色 */
+      --bg-card: #fffdf8;     /* 小卡底色 */
+      --bg-tag: #fde7c2;
+      --accent: #f2b36c;      /* 重點顏色 */
+      --accent-soft: #ffe0b3;
+      --text-main: #5a4433;   /* 深咖啡，不用純黑 */
+      --text-light: #8d7460;
+      --border-soft: #efd9c5;
       --radius-big: 28px;
-      --radius-card: 22px;
+      --radius-med: 18px;
+      --shadow-soft: 0 10px 26px rgba(145, 115, 86, 0.15);
     }
 
     * {
       box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       margin: 0;
-      padding: 24px 12px 40px;
-      font-family: "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at 0% 0%, #fff2de 0, transparent 55%),
-                  radial-gradient(circle at 100% 0%, #ffe8f0 0, transparent 55%),
-                  radial-gradient(circle at 100% 100%, #e9f6ff 0, transparent 55%),
-                  var(--bg-main);
+      padding: 0;
+      background: var(--bg-main);
+      font-family: "Noto Sans TC", "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text-main);
-      display: flex;
-      justify-content: center;
     }
 
-    .card {
-      max-width: 900px;
-      width: 100%;
-      background: var(--bg-card);
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    /* 頂部大區塊 */
+    .top-bar {
+      background: var(--bg-header);
       border-radius: 32px;
+      padding: 20px 24px;
       box-shadow: var(--shadow-soft);
-      padding: 20px 16px 28px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before,
-    .card::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      opacity: 0.2;
-      pointer-events: none;
-    }
-
-    .card::before {
-      width: 180px;
-      height: 180px;
-      background: #ffd4c3;
-      top: -60px;
-      right: -40px;
-      box-shadow: 0 0 0 16px rgba(255, 212, 195, 0.3);
-    }
-
-    .card::after {
-      width: 140px;
-      height: 140px;
-      background: #ffecc6;
-      bottom: -40px;
-      left: -20px;
-      box-shadow: 0 0 0 14px rgba(255, 238, 198, 0.4);
-    }
-
-    .header {
-      position: relative;
-      background: linear-gradient(145deg, #4c3a34, #664a3e);
-      color: #fff;
-      border-radius: 28px;
-      padding: 18px 18px 20px;
-      margin-bottom: 18px;
-      overflow: hidden;
-    }
-
-    .header::before {
-      content: "";
-      position: absolute;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #ffe0b8, transparent 60%);
-      opacity: 0.4;
-      top: -40px;
-      right: -30px;
-    }
-
-    .corner-tag {
-      font-size: 13px;
-      letter-spacing: 0.05em;
-      color: #ffedd2;
-      margin-bottom: 4px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .title-row {
       display: flex;
-      align-items: baseline;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .top-row {
+      display: flex;
       justify-content: space-between;
-      gap: 8px;
-      position: relative;
-      z-index: 1;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .brand-title {
+    .shop-label {
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      color: var(--text-light);
+    }
+
+    .title-main {
       font-family: "Baloo 2", "Noto Sans TC", system-ui, sans-serif;
-      letter-spacing: 0.3em;
-      font-size: 26px;
+      font-size: 32px;
+      letter-spacing: 0.35em;
+      text-indent: 0.35em;
     }
 
-    .brand-subtitle {
-      font-size: 13px;
-      color: #ffe5c5;
-      margin-top: 4px;
-    }
-
-    .chip {
-      font-size: 11px;
-      padding: 4px 10px;
+    .style-pill {
+      padding: 6px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 242, 219, 0.6);
-      background: rgba(255, 242, 219, 0.18);
-      color: #fff6e8;
+      background: #f7ebdd;
+      font-size: 12px;
       white-space: nowrap;
     }
 
-    .tabs {
-      display: flex;
-      gap: 10px;
-      margin: 16px 4px 4px;
-      position: relative;
-      z-index: 1;
+    .tagline {
+      font-size: 14px;
+      color: var(--text-light);
     }
 
-    .tab-btn {
-      flex: 1;
-      border: none;
-      background: var(--bg-tab);
-      color: var(--text-main);
-      padding: 10px 6px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
+    /* 上方三個分頁按鈕 */
+    .top-tabs {
       display: flex;
-      align-items: center;
       justify-content: center;
+      gap: 12px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+
+    .tab-button {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #f7ebdd;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
       gap: 6px;
+      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.03);
       transition: all 0.18s ease;
     }
 
-    .tab-btn span.emoji {
-      font-size: 16px;
+    .tab-button span.icon {
+      font-size: 15px;
     }
 
-    .tab-btn.active {
-      background: #fff7e8;
-      color: var(--accent-deep);
-      box-shadow: 0 3px 8px rgba(140, 92, 62, 0.25);
+    .tab-button.active {
+      background: var(--accent);
+      color: #fffaf3;
+      box-shadow: 0 6px 0 rgba(206, 145, 76, 0.5);
       transform: translateY(-1px);
     }
 
-    .tab-btn:hover {
-      filter: brightness(1.03);
+    .tab-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 0 rgba(206, 145, 76, 0.4);
     }
 
-    .content {
-      margin-top: 8px;
-      position: relative;
-      z-index: 1;
+    main {
+      margin-top: 18px;
     }
 
     .tab-panel {
       display: none;
-      animation: fadeIn 0.2s ease-out;
+      animation: fadeIn 0.25s ease-out;
     }
 
     .tab-panel.active {
@@ -200,888 +144,815 @@
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(4px); }
-      to   { opacity: 1; transform: translateY(0); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .section-card {
-      background: rgba(255, 255, 255, 0.94);
-      border-radius: var(--radius-card);
-      border: 1px solid var(--border-soft);
-      padding: 16px 14px 16px;
-      margin-top: 12px;
-      position: relative;
-      box-shadow: 0 4px 12px rgba(204, 169, 131, 0.12);
+    /* 區塊標題 */
+    .section-block {
+      margin-top: 18px;
+      margin-bottom: 8px;
     }
 
-    .section-card + .section-card {
-      margin-top: 14px;
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 0 6px;
     }
 
     .section-title {
-      font-family: "Baloo 2", "Noto Sans TC", system-ui, sans-serif;
-      font-size: 21px;
-      margin: 0 0 4px;
-      display: inline-flex;
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
       align-items: center;
       gap: 6px;
+    }
+
+    .section-title::before {
+      content: "●";
+      font-size: 10px;
+      color: var(--accent);
     }
 
     .section-tag {
-      font-size: 11px;
-      padding: 3px 8px;
+      font-size: 12px;
+      padding: 3px 10px;
       border-radius: 999px;
-      background: #fff2dd;
-      color: var(--accent-deep);
-      border: 1px solid #f4ceb0;
-      margin-left: auto;
+      background: var(--bg-tag);
+      color: var(--text-light);
       white-space: nowrap;
     }
 
-    .section-subtitle {
-      font-size: 13px;
-      color: var(--text-light);
-      margin: 0 0 6px;
+    /* 小卡片 */
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-big);
+      padding: 14px 18px 14px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 6px 18px rgba(140, 110, 85, 0.05);
+      margin-bottom: 10px;
     }
 
-    .divider {
-      border-top: 1px solid #f1dcc5;
-      margin: 10px 0 12px;
-    }
-
-    .price-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      row-gap: 6px;
-      column-gap: 8px;
-      font-size: 15px;
-    }
-
-    .price-label {
-      color: var(--text-main);
-    }
-
-    .price-value {
-      text-align: right;
-      font-weight: 600;
-      color: var(--accent-deep);
-      font-family: "Baloo 2", "Noto Sans TC", system-ui, sans-serif;
-    }
-
-    .note-line {
-      font-size: 12px;
-      color: var(--text-light);
-      margin-top: 4px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #fff2df;
-      color: var(--accent-deep);
-      margin-bottom: 6px;
-    }
-
-    .booking-list {
-      font-size: 13px;
-      margin: 4px 0 0;
-      padding-left: 1.2em;
-    }
-
-    .booking-list li {
-      margin: 3px 0;
-    }
-
-    .strong {
-      font-weight: 600;
-      color: var(--accent-deep);
-    }
-
-    .care-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .care-item {
-      background: #fff9f1;
-      border-radius: 18px;
-      border: 1px solid #f5debf;
-      padding: 10px 12px 10px;
-      position: relative;
-    }
-
-    .care-header {
+    .card-header-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 6px;
+      gap: 10px;
+      margin-bottom: 4px;
     }
 
-    .care-name {
+    .card-title {
       font-size: 16px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      font-weight: 700;
     }
 
-    .care-length {
+    .card-sub {
       font-size: 12px;
       color: var(--text-light);
     }
 
-    .care-price {
-      text-align: right;
+    .price-line {
       font-size: 14px;
-      color: var(--accent-deep);
-      font-weight: 600;
-      font-family: "Baloo 2", "Noto Sans TC", system-ui, sans-serif;
-    }
-
-    details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
       margin-top: 6px;
-      font-size: 13px;
+      margin-bottom: 4px;
     }
 
-    details summary {
-      list-style: none;
+    .duration {
+      font-size: 13px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #f7ebdd;
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+
+    .price {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .hint-line {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    /* 展開 / 收起介紹按鈕 */
+    .toggle-detail {
+      margin-top: 6px;
+      border: none;
+      background: #f7ebdd;
+      color: var(--text-main);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      color: var(--accent-deep);
-      font-weight: 500;
     }
 
-    details summary::before {
-      content: "＋";
-      font-family: "Baloo 2", "Noto Sans TC", system-ui, sans-serif;
+    .toggle-detail .symbol {
       font-size: 14px;
     }
 
-    details[open] summary::before {
-      content: "－";
-    }
-
-    details summary::-webkit-details-marker {
+    .detail {
       display: none;
+      margin-top: 8px;
+      padding-top: 4px;
+      border-top: 1px dashed #ecd3bf;
+      font-size: 13px;
+      line-height: 1.7;
     }
 
-    details p {
-      margin: 4px 0 0;
-      color: var(--text-main);
+    .detail p {
+      margin: 4px 0;
     }
 
-    .bullet-list {
-      padding-left: 1.1em;
-      margin: 4px 0 2px;
+    .detail ul {
+      padding-left: 20px;
+      margin: 4px 0 6px;
     }
 
-    .bullet-list li {
-      margin: 2px 0;
+    .detail li {
+      margin-bottom: 2px;
     }
 
-    .footer-note {
-      text-align: center;
-      font-size: 11px;
+    /* 注意事項＆預約須知 */
+    .note-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 8px 0 0;
+      font-size: 14px;
+    }
+
+    .note-list li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .note-icon {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .note-text {
+      flex: 1;
+    }
+
+    .small-label {
+      font-size: 12px;
       color: var(--text-light);
-      margin-top: 14px;
+      margin-top: 6px;
     }
 
+    footer {
+      margin-top: 22px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* RWD */
     @media (min-width: 720px) {
-      body {
-        padding: 30px 24px;
+      .top-bar {
+        padding: 24px 32px;
       }
-      .card {
-        padding: 24px 24px 32px;
-      }
-      .header {
-        padding: 20px 24px 22px;
-      }
-      .tabs {
-        max-width: 460px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .section-card {
-        padding: 16px 18px 18px;
+      .section-block {
+        margin-top: 22px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="card">
-    <!-- 上方黑色 Banner -->
-    <header class="header">
-      <div class="corner-tag">《 曼都板新店 》</div>
-      <div class="title-row">
-        <div>
-          <div class="brand-title">HAIR</div>
-          <div class="brand-subtitle">想變美變漂亮，就來找我們 ♡</div>
-        </div>
-        <div class="chip">Creamy Cute Style · Hair</div>
+  <div class="page">
+    <!-- 頂部區塊 -->
+    <header class="top-bar">
+      <div class="top-row">
+        <div class="shop-label">《 曼都板新店 》</div>
+        <div class="title-main">HAIR</div>
+        <div class="style-pill">Creamy Cute Style · Hair</div>
+      </div>
+      <div class="top-row" style="justify-content: space-between;">
+        <div class="tagline">想變髮變漂亮，就來找我們 ♡</div>
       </div>
 
-      <!-- 分頁按鈕 -->
-      <div class="tabs" id="tabs">
-        <button class="tab-btn active" data-tab="notice">
-          <span class="emoji">🔔</span>
-          注意事項
+      <!-- 上方三顆分頁按鈕 -->
+      <nav class="top-tabs">
+        <button class="tab-button active" data-tab="notice">
+          <span class="icon">🔔</span> 注意事項
         </button>
-        <button class="tab-btn" data-tab="price">
-          <span class="emoji">💰</span>
-          價目表
+        <button class="tab-button" data-tab="price">
+          <span class="icon">💰</span> 價目表
         </button>
-        <button class="tab-btn" data-tab="booking">
-          <span class="emoji">📒</span>
-          預約須知
+        <button class="tab-button" data-tab="booking">
+          <span class="icon">📒</span> 預約須知
         </button>
-      </div>
+      </nav>
     </header>
 
-    <section class="content">
-      <!-- ========= 注意事項 ========= -->
-      <div class="tab-panel active" id="tab-notice">
-        <section class="section-card">
-          <span class="badge">我們小小提醒 🔔 讓彼此都更輕鬆順利</span>
-          <h2 class="section-title">注意事項</h2>
+    <main>
+      <!-- 注意事項 -->
+      <section class="tab-panel active" id="notice">
+        <div class="section-block">
+          <div class="section-title-row">
+            <div class="section-title">注意事項</div>
+            <div class="section-tag">Little Reminder</div>
+          </div>
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">營業時間 ＆ 最後預約</div>
+            </div>
+            <ul class="note-list">
+              <li>
+                <span class="note-icon">🕒</span>
+                <span class="note-text">
+                  營業時間：<strong>09：30 – 18：00</strong><br>
+                  最後預約洗髮：<strong>17：30</strong><br>
+                  最後預約燙染：<strong>16：30</strong>
+                </span>
+              </li>
+              <li>
+                <span class="note-icon">📆</span>
+                <span class="note-text">
+                  每週 <strong>三</strong> 店休（請避開這天預約喔）。
+                </span>
+              </li>
+              <li>
+                <span class="note-icon">⏳</span>
+                <span class="note-text">
+                  因為座位數量少、人手有限，<strong>假日（五、六、日）</strong>多少會等待一下下，<br>
+                  真的很抱歉 ☹️ 無法久候的朋友，建議可以安排在平日來放鬆。
+                </span>
+              </li>
+            </ul>
+          </div>
 
-          <ul class="booking-list">
-            <li>
-              <span class="strong">營業時間：</span>09:30 – 18:00
-            </li>
-            <li>
-              <span class="strong">最後預約時間：</span>洗髮 17:30、燙染 16:30
-            </li>
-            <li>
-              因為座位數量少、人手有限，
-              <span class="strong">假日（五、六、日）</span>
-              多少會等待一下下，非常抱歉 ☹️  
-              若無法等待，建議可以預約平日。
-            </li>
-            <li>
-              <span class="strong">每週三固定公休。</span>
-            </li>
-            <li>
-              <span class="strong">結帳方式：</span>現金、Line Pay、信用卡、Apple Pay、轉帳。
-            </li>
-            <li>
-              店內的顧客都是來放鬆充電，
-              麻煩大家講話與手機音量
-              <span class="strong">稍微降低一點點</span>，
-              一起維持舒服安靜的空間 ♡
-            </li>
-          </ul>
-        </section>
-      </div>
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">結帳方式</div>
+            </div>
+            <ul class="note-list">
+              <li>
+                <span class="note-icon">💳</span>
+                <span class="note-text">
+                  完成服務後，結帳可使用：<br>
+                  <strong>現金、LINE Pay、信用卡、Apple Pay、轉帳</strong>。
+                </span>
+              </li>
+            </ul>
+          </div>
 
-      <!-- ========= 價目表 ========= -->
-      <div class="tab-panel" id="tab-price">
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">一起維持舒服的環境</div>
+            </div>
+            <ul class="note-list">
+              <li>
+                <span class="note-icon">🤍</span>
+                <span class="note-text">
+                  店內的每一位客人，都是來好好放鬆的～<br>
+                  麻煩大家講話音量與手機聲音<strong>稍微放小一點</strong>，<br>
+                  讓彼此都可以在舒服的氛圍裡好好變漂亮。
+                </span>
+              </li>
+            </ul>
+            <div class="small-label">《 曼都板新店 · Creamy Cute Style 》</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 價目表 -->
+      <section class="tab-panel" id="price">
         <!-- 洗髮 -->
-        <section class="section-card">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <h2 class="section-title">洗髮</h2>
+        <div class="section-block">
+          <div class="section-title-row">
+            <div class="section-title">洗髮</div>
             <div class="section-tag">Scalp &amp; Hair Wash</div>
           </div>
-          <p class="section-subtitle">放鬆一下、換個好心情，從舒服洗開始。</p>
 
-          <div class="divider"></div>
-
-          <div class="price-grid">
-            <div class="price-label">芳香洗／假日洗</div>
-            <div class="price-value">$499 up</div>
-
-            <div class="price-label">健康洗</div>
-            <div class="price-value">$799 up</div>
-
-            <div class="price-label">Spa 舒壓洗</div>
-            <div class="price-value">$1,699 up</div>
-
-            <div class="price-label">法式 Spa 洗</div>
-            <div class="price-value">$2,199 up</div>
+          <div class="card">
+            <div class="card-header-row">
+              <div>
+                <div class="card-title">放鬆一下，換個好心情，從舒服洗髮開始。</div>
+                <div class="card-sub">價格依長度調整，以現場報價為主。</div>
+              </div>
+            </div>
+            <div class="price-line">
+              <span>芳香洗 / 假日洗</span>
+              <span class="price">$499 up</span>
+            </div>
+            <div class="price-line">
+              <span>健康洗</span>
+              <span class="price">$799 up</span>
+            </div>
+            <div class="price-line">
+              <span>Spa 舒壓洗</span>
+              <span class="price">$1,699 up</span>
+            </div>
+            <div class="price-line">
+              <span>法式 Spa 洗</span>
+              <span class="price">$2,199 up</span>
+            </div>
+            <div class="hint-line">
+              ＊長度加價說明：肩下 25 公分內 +$30｜超過 35 公分 +$50｜到腰 +$200
+            </div>
           </div>
-
-          <div class="divider"></div>
-          <p class="note-line">
-            ⬆ 長度加價說明：肩下 25 公分內 +$30 ｜ 超過 35 公分 +$50 ｜ 到腰 +$200
-          </p>
-        </section>
+        </div>
 
         <!-- 剪髮 -->
-        <section class="section-card">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <h2 class="section-title">剪髮</h2>
+        <div class="section-block">
+          <div class="section-title-row">
+            <div class="section-title">剪髮</div>
             <div class="section-tag">Hair Cut</div>
           </div>
-          <p class="section-subtitle">
-            不同老師、不同風格，幫你找到最適合的樣子。
-          </p>
 
-          <div class="divider"></div>
-
-          <div class="price-grid">
-            <div class="price-label strong">蛋蛋老師</div>
-            <div class="price-value">$900</div>
-
-            <div class="price-label strong">男仕／JC 老師</div>
-            <div class="price-value">$600</div>
-
-            <div class="price-label strong">秀霞老師</div>
-            <div class="price-value">$600</div>
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">設計師剪髮</div>
+            </div>
+            <div class="price-line">
+              <span>蛋蛋老師</span>
+              <span class="price">$900</span>
+            </div>
+            <div class="price-line">
+              <span>男仕 / JC 老師</span>
+              <span class="price">$600</span>
+            </div>
+            <div class="price-line">
+              <span>秀霞老師</span>
+              <span class="price">$600</span>
+            </div>
           </div>
 
-          <div class="divider"></div>
-          <p class="section-subtitle" style="margin-bottom:4px;">店長安排</p>
-          <div class="price-grid">
-            <div class="price-label">安安</div>
-            <div class="price-value">$500</div>
-
-            <div class="price-label">小雨</div>
-            <div class="price-value">$500</div>
-
-            <div class="price-label">佩佩</div>
-            <div class="price-value">$500</div>
-
-            <div class="price-label">剪瀏海</div>
-            <div class="price-value">$100</div>
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">店長安排</div>
+            </div>
+            <div class="price-line">
+              <span>安安</span>
+              <span class="price">$500</span>
+            </div>
+            <div class="price-line">
+              <span>小雨</span>
+              <span class="price">$500</span>
+            </div>
+            <div class="price-line">
+              <span>佩佩</span>
+              <span class="price">$500</span>
+            </div>
+            <div class="price-line">
+              <span>剪瀏海</span>
+              <span class="price">$100</span>
+            </div>
           </div>
-        </section>
+        </div>
 
         <!-- 造型 -->
-        <section class="section-card">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <h2 class="section-title">造型</h2>
+        <div class="section-block">
+          <div class="section-title-row">
+            <div class="section-title">造型</div>
             <div class="section-tag">Styling</div>
           </div>
-          <p class="section-subtitle">
-            約會、拍照、重要場合，想要特別一點的髮型，可以先跟設計師聊聊。
-          </p>
 
-          <div class="divider"></div>
-          <div class="price-grid">
-            <div class="price-label">電棒造型</div>
-            <div class="price-value">$100</div>
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">日常造型 / 活動造型</div>
+            </div>
+            <div class="price-line">
+              <span>電棒造型</span>
+              <span class="price">$100</span>
+            </div>
+            <div class="hint-line">
+              其他整體造型、活動造型，歡迎現場或私訊與設計師溝通詢問 ♡
+            </div>
           </div>
-
-          <p class="note-line">
-            其他整體造型、活動造型，歡迎現場或私訊
-            <span class="strong">跟設計師溝通詢問</span>。
-          </p>
-        </section>
+        </div>
 
         <!-- 護髮 -->
-        <section class="section-card">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <h2 class="section-title">護髮</h2>
+        <div class="section-block">
+          <div class="section-title-row">
+            <div class="section-title">護髮</div>
             <div class="section-tag">Treatment Care</div>
           </div>
-          <p class="section-subtitle">
-            針對受損、毛躁、乾燥、漂後的頭髮，幫你補水、補營養、補彈性。
-          </p>
 
-          <div class="divider"></div>
-
-          <div class="care-list">
-            <!-- 玫瑰酪梨 -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">玫瑰酪梨護髮</div>
-                  <div class="care-length">$1,500</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆功效</summary>
-                <p>
-                  適合髮質：受損、乾燥、粗硬、易毛躁的髮質。<br />
-                  專門給<span class="strong">嚴重受損、燙後、漂後、乾燥髮</span>做的深層修護。
-                </p>
-
-                <p>✨ 功效亮點：</p>
-                <ul class="bullet-list">
-                  <li>補水保濕 100%</li>
-                  <li>柔順度提升 100%</li>
-                  <li>光澤感提升 100%</li>
-                  <li>彈潤度提升 100%</li>
-                </ul>
-                <p class="note-line">做完會是「滑、亮、軟、超好梳」的狀態。</p>
-
-                <p>🥑 兩大重點修護成分：</p>
-                <p class="note-line">
-                  <span class="strong">酪梨油精華：</span>深層滋潤乾燥髮絲、補充營養、強化髮芯，改善因染燙造成的粗硬、卡卡、斷裂。<br />
-                  <span class="strong">玫瑰精華：</span>增加髮絲光澤與柔軟度，讓受損髮質恢復順滑質感。
-                </p>
-              </details>
-            </article>
-
-            <!-- 奇蹟護 -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">奇蹟護</div>
-                  <div class="care-length">短髮 / $1,500　中髮 / $2,000　長髮 / $3,000</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆功效</summary>
-                <p>
-                  專門修護乾燥、分叉、毛躁的
-                  <span class="strong">「即效型修護」</span>。<br />
-                  只要約 1 分鐘，髮絲立刻變柔亮、順滑好梳理。
-                </p>
-
-                <p>✨ 功效一次看懂：</p>
-                <ul class="bullet-list">
-                  <li>4 倍補水力（乾燥瞬間喝飽水）。</li>
-                  <li>8 倍彈性修護（髮芯變強韌、不易斷裂）。</li>
-                  <li>5 倍滑順力（立刻好梳、不打結）。</li>
-                </ul>
-                <p class="note-line">
-                  👉 做完的感覺就是：順、亮、滑、柔、不炸毛。
-                </p>
-
-                <p>🌿 主要成分：</p>
-                <p class="note-line">
-                  玻尿酸．CMC 深層補水鎖水；乳酸、水解角質蛋白讓髮芯恢復彈性；水解小麥蛋白修補受損表層、增加光澤。
-                </p>
-              </details>
-            </article>
-
-            <!-- 阿甘油微晶修護髮膜 -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">阿甘油 微晶修護髮膜</div>
-                  <div class="care-length">$1,600</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆感受</summary>
-                <p>
-                  阿甘油微晶修護髮膜是一款專門修復受損髮質的深層護髮，<br />
-                  讓乾燥、毛躁、爆炸髮重新變得柔亮滑順。
-                </p>
-              </details>
-            </article>
-
-            <!-- 極光結構修護 -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">極光結構修護</div>
-                  <div class="care-length">短髮 / $1,800　中長 / $2,000　長髮 / $2,500</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆流程</summary>
-                <p>
-                  想改善毛躁、乾燥、斷裂、漂後受損？<br />
-                  這款<span class="strong">「極光結構式護髮」</span>是從髮芯開始修復的專業深層護理。
-                </p>
-
-                <p>🔧 什麼是結構式護髮？</p>
-                <p class="note-line">
-                  不是只讓表面柔順，而是：補洞 → 重建髮絲彈性 → 強化韌度 → 上護膜鎖住營養；讓頭髮真的變健康、變亮、變好整理。
-                </p>
-
-                <p>✨ 效果一次到位：</p>
-                <ul class="bullet-list">
-                  <li>強韌度 +120%</li>
-                  <li>保濕 +200%</li>
-                  <li>光澤 +150%</li>
-                  <li>柔順 +130%</li>
-                  <li>彈性 +100%</li>
-                </ul>
-                <p class="note-line">👉 做完就是「亮、柔、滑、厚度 UP」那種好髮質。</p>
-
-                <p>🧴 4 步驟專業流程：</p>
-                <p class="note-line">
-                  1️⃣ 深層淨化（打開吸收通道）<br />
-                  2️⃣ 修補髮芯結構（填補漂燙造成的空洞）<br />
-                  3️⃣ 補充彈性與保水<br />
-                  4️⃣ 外層鎖膜增亮
-                </p>
-              </details>
-            </article>
+          <!-- 玫瑰酪梨 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">玫瑰酪梨護髮</div>
+              <div class="price">$1,500</div>
+            </div>
+            <div class="card-sub">適合：受損、乾燥、粗硬、易毛躁、燙後、漂後髮質。</div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專門給<strong>嚴重受損、燙後、漂後、乾燥髮</strong>做的深層修護。</p>
+              <p><strong>✨ 功效亮點</strong></p>
+              <ul>
+                <li>補水保濕 +100%</li>
+                <li>柔順度提升 +100%</li>
+                <li>光澤感提升 +100%</li>
+                <li>彈潤度提升 +100%</li>
+              </ul>
+              <p>👉 做完會是「<strong>滑、亮、軟、超好梳</strong>」的狀態。</p>
+              <p><strong>🥑 兩大重點修護成分</strong></p>
+              <p><u>酪梨油精華</u>：深層滋潤乾燥髮絲、補充營養、強化髮芯，改善染燙造成的粗硬、卡卡、斷裂。</p>
+              <p><u>玫瑰精華</u>：增加髮絲光澤與柔軟度，讓受損髮質恢復順滑質感。</p>
+            </div>
           </div>
-        </section>
 
-        <!-- 頭皮 SPA 精油課程 -->
-        <section class="section-card">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <h2 class="section-title">頭皮 SPA 精油課程</h2>
-            <div class="section-tag">Scalp Spa &amp; Oil</div>
+          <!-- 奇蹟護 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">奇蹟護</div>
+              <div class="price">短 $1,500 ｜ 中 $2,000 ｜ 長 $3,000</div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專門修護<strong>乾燥、分叉、毛躁</strong>的「即效型修護」。只要約 1 分鐘，髮絲立刻變柔亮、順滑好梳理。</p>
+              <p><strong>✨ 功效一次看懂</strong></p>
+              <ul>
+                <li>4 倍補水力：乾燥髮瞬間喝飽水</li>
+                <li>8 倍彈性修護：髮芯變強韌、不易斷裂</li>
+                <li>5 倍滑順力：立刻好梳、不打結</li>
+              </ul>
+              <p>👉 做完的感覺就是：<strong>順、亮、滑、柔、不炸毛。</strong></p>
+              <p><strong>🌿 主要成分</strong></p>
+              <ul>
+                <li>玻尿酸．CMC：深層補水、鎖水</li>
+                <li>乳酸、水解角質蛋白：讓髮芯恢復彈性</li>
+                <li>水解小麥蛋白：修補受損表層、增加光澤</li>
+              </ul>
+            </div>
           </div>
-          <p class="section-subtitle">
-            想讓頭皮好好深呼吸、放鬆壓力，也可以搭配不同功能的精油 SPA。
-          </p>
 
-          <div class="divider"></div>
-
-          <div class="care-list">
-            <!-- TONUCIA 櫻珞木 -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">TONUCIA 櫻珞木泉能精華</div>
-                  <div class="care-length">$1,500</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆功效</summary>
-                <p>
-                  專為<span class="strong">乾性頭皮、脆弱細髮、缺乏彈性</span>設計的頭皮活化精華。<br />
-                  補水、逆齡、強韌三效合一，讓頭皮更健康、髮絲更有生命力。
-                </p>
-
-                <p>✨ 主要功效：</p>
-                <ul class="bullet-list">
-                  <li>深層保濕頭皮、改善乾燥脫屑。</li>
-                  <li>提升頭皮彈性，讓髮絲更堅韌不易斷。</li>
-                  <li>強化頭皮防禦力，延緩頭皮老化。</li>
-                  <li>調理油水平衡，使頭皮柔軟有彈性。</li>
-                </ul>
-
-                <p>🌿 核心成分亮點：</p>
-                <p class="note-line">
-                  櫻珞木精華：保濕＋修護，提升頭皮彈性與含水量。<br />
-                  香蜂草：抗氧化保護頭皮。<br />
-                  植物柔潤修護配方：改善乾燥、提升光澤，使頭皮更穩定健康。
-                </p>
-              </details>
-            </article>
-
-            <!-- 紫苑草冰鎮舒緩 -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">紫苑草冰鎮舒緩 SPA</div>
-                  <div class="care-length">$1,500</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆功效</summary>
-                <p>
-                  專門給敏感頭皮、緊繃、悶熱、容易刺癢的人使用。<br />
-                  冰鎮涼感能瞬間降溫，舒緩不適、讓頭皮恢復平衡。
-                </p>
-
-                <p>✨ 主要功效：</p>
-                <ul class="bullet-list">
-                  <li>鎮定敏感、舒緩乾癢不適。</li>
-                  <li>瞬間降溫，減少悶熱與緊繃感。</li>
-                  <li>強化頭皮防禦力、不容易再刺激。</li>
-                  <li>提升頭皮含氧感，更輕透舒服。</li>
-                </ul>
-
-                <p>🌿 核心成分亮點：</p>
-                <p class="note-line">
-                  紫苑草萃取：舒緩敏弱、提升頭皮天然防禦力。<br />
-                  薄荷精油：快速變涼，緩解悶熱與壓力性不適。<br />
-                  桉樹精油：淨化、調理，讓頭皮更乾淨透氣。
-                </p>
-              </details>
-            </article>
-
-            <!-- 洋甘菊精油 SPA -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">洋甘菊精油 SPA（敏感修護）</div>
-                  <div class="care-length">$1,600</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆感受</summary>
-                <p>
-                  適合：敏弱、易紅、乾癢、刺痛、頭皮緊繃的人。
-                </p>
-
-                <p>✨ 主要功效：</p>
-                <ul class="bullet-list">
-                  <li>舒緩敏感、改善頭皮不適。</li>
-                  <li>抗紅、抗壓、減少乾燥脫屑。</li>
-                  <li>增加頭皮彈性、提升保護力。</li>
-                  <li>促進循環，使頭皮更健康穩定。</li>
-                </ul>
-
-                <p class="note-line">
-                  ✨ 效果感受：柔軟、放鬆、不緊繃，敏感感降低。
-                </p>
-              </details>
-            </article>
-
-            <!-- 薄荷精油 SPA -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">薄荷精油 SPA（活化控油）</div>
-                  <div class="care-length">$1,600</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆功效</summary>
-                <p>
-                  適合：出油快、頭皮悶、扁塌、容易疲勞頭皮的人。
-                </p>
-
-                <p>✨ 主要功效：</p>
-                <ul class="bullet-list">
-                  <li>平衡頭皮 PH 值，調整油脂。</li>
-                  <li>清爽不黏膩，改善悶熱與異味。</li>
-                  <li>促進頭皮循環、增加含氧感。</li>
-                  <li>醒腦舒壓、增強抗菌力。</li>
-                  <li>讓髮根更蓬鬆、精神感提升。</li>
-                </ul>
-
-                <p class="note-line">
-                  ✨ 效果感受：涼爽、清新、透氣，頭皮很輕鬆。
-                </p>
-              </details>
-            </article>
-
-            <!-- 淨化精油 SPA -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">淨化 SPA 精油</div>
-                  <div class="care-length">$1,600</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆功效</summary>
-                <p>
-                  專為<span class="strong">出油、悶熱、堵塞、易長頭皮痘</span>的頭皮設計。<br />
-                  深層淨化＋溫和舒緩，讓頭皮恢復清爽透氣。
-                </p>
-
-                <p>✨ 主要功效：</p>
-                <ul class="bullet-list">
-                  <li>深層淨化頭皮，排掉油脂與髒污。</li>
-                  <li>舒緩緊繃、減少悶熱不適。</li>
-                  <li>改善頭皮異味與油膩感。</li>
-                  <li>提升頭皮呼吸感，讓髮根更蓬鬆。</li>
-                  <li>平衡油脂分泌，延緩出油時間。</li>
-                </ul>
-
-                <p>🌿 核心植物成分：</p>
-                <p class="note-line">
-                  百里香精油：淨化抗菌。<br />
-                  永久花萃取：舒緩頭皮、提升彈性。<br />
-                  檸檬萃取：清爽控油、改善悶味。<br />
-                  馬鬱蘭精油：安撫放鬆、改善壓力性油頭。<br />
-                  德國洋甘菊：舒緩敏弱、減輕乾癢。
-                </p>
-              </details>
-            </article>
-
-            <!-- AC 精油頭皮舒壓課程 -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">AC 精油頭皮舒壓課程</div>
-                  <div class="care-length">$1,700</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆功效</summary>
-                <p>
-                  預防落髮 · 提升循環代謝 · 深層放鬆。<br />
-                  使用<span class="strong">法國雙重有機認證精油</span>，專門改善因壓力、循環不良造成的落髮與頭皮疲勞。<br />
-                  建議頻率：每週 1–2 次。
-                </p>
-
-                <p>✨ 主要功效：</p>
-                <ul class="bullet-list">
-                  <li>促進循環，改善頭皮代謝差。</li>
-                  <li>預防落髮、強化毛囊。</li>
-                  <li>放鬆緊繃頭皮，舒緩壓力疲勞。</li>
-                  <li>提升含氧感，減少沉重與悶脹感。</li>
-                  <li>調理油脂，讓頭皮更清爽健康。</li>
-                </ul>
-
-                <p>🌿 精油成分亮點：</p>
-                <p class="note-line">
-                  葡萄柚：促進循環。<br />
-                  百里香：保護毛囊。<br />
-                  檸檬：清爽淨化。<br />
-                  薰衣草：舒緩安撫。<br />
-                  薄荷：冰涼提神、減少悶感。<br />
-                  伊蘭伊蘭：平衡油脂、增加柔順度。
-                </p>
-              </details>
-            </article>
+          <!-- 阿甘油 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">阿甘油 微晶修護髮膜</div>
+              <div class="price">$1,600</div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專門修復<strong>受損、乾燥、毛躁、爆炸髮</strong>的深層護髮，讓髮絲重新變得柔亮滑順、好整理。</p>
+              <p><strong>✨ 功效</strong></p>
+              <ul>
+                <li>深層修護染燙受損</li>
+                <li>減少毛躁、爆炸感</li>
+                <li>增加光澤與柔軟度</li>
+              </ul>
+            </div>
           </div>
-        </section>
 
-        <!-- 養護精華 -->
-        <section class="section-card">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <h2 class="section-title">養護</h2>
-            <div class="section-tag">Scalp Care Serum</div>
+          <!-- 極光結構 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">極光結構修護</div>
+              <div class="price">短 $1,800 ｜ 中長 $2,000 ｜ 長 $2,500</div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>想改善<strong>毛躁、乾燥、斷裂、漂後受損</strong>，這款「極光結構式護髮」是從髮芯開始修復的專業深層護理。</p>
+              <p><strong>🔧 什麼是結構式護髮？</strong><br>
+                不是只有表面柔順，而是：
+                <br>補洞 → 重建髮絲彈性 → 強化韌度 → 上護膜鎖住營養，讓頭髮真的變健康、變亮、變好整理。
+              </p>
+              <p><strong>✨ 效果一次到位</strong></p>
+              <ul>
+                <li>強韌度 +120%</li>
+                <li>保濕 +200%</li>
+                <li>光澤 +150%</li>
+                <li>柔順 +130%</li>
+                <li>彈性 +100%</li>
+              </ul>
+              <p>👉 做完就是「<strong>亮、柔、滑、厚度 UP</strong>」那種好髮質。</p>
+              <p><strong>🧴 4 步驟專業流程</strong></p>
+              <ol>
+                <li>深層淨化（打開吸收通道）</li>
+                <li>修補髮芯結構（填補漂燙造成的空洞）</li>
+                <li>補充彈性與保水</li>
+                <li>外層鎖膜增亮</li>
+              </ol>
+            </div>
           </div>
-          <p class="section-subtitle">
-            從毛囊根源開始調理，幫助改善落髮、髮量變少、髮根無力。
-          </p>
+        </div>
 
-          <div class="divider"></div>
-
-          <div class="care-list">
-            <!-- 蘋果幹細胞 -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">蘋果幹細胞</div>
-                  <div class="care-length">$1,200</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆功效</summary>
-                <p>
-                  這是一款專門<span class="strong">「活化毛囊、改善落髮」</span>的頭皮安瓶，<br />
-                  從根源調理頭皮，讓頭髮長得更強壯、不容易掉。
-                </p>
-
-                <p>✨ 專為落髮問題設計：</p>
-                <ul class="bullet-list">
-                  <li>活絡毛囊，促進新生髮芽。</li>
-                  <li>減少落髮、強化髮根抓力。</li>
-                  <li>平衡油脂、改善頭皮緊繃與乾癢。</li>
-                  <li>提高頭皮代謝，讓頭皮環境更健康。</li>
-                </ul>
-
-                <p class="note-line">
-                  👉 整體感覺：掉髮變少、髮根更挺、頭皮更舒服。
-                </p>
-              </details>
-            </article>
-
-            <!-- 亞美尼斯 -->
-            <article class="care-item">
-              <div class="care-header">
-                <div>
-                  <div class="care-name">亞美尼斯</div>
-                  <div class="care-length">$1,200</div>
-                </div>
-              </div>
-
-              <details>
-                <summary>介紹＆功效</summary>
-                <p>
-                  專門針對<span class="strong">「落髮、髮根軟、髮量變少」</span>設計的髮根精華，<br />
-                  能軟化僵硬的膠原纖維，讓毛囊重新呼吸、強壯生長。
-                </p>
-
-                <p>✨ 主要功效：</p>
-                <ul class="bullet-list">
-                  <li>減少落髮、強化髮根抓力。</li>
-                  <li>改善髮根脆弱、容易斷裂。</li>
-                  <li>延長髮絲的健康生長期。</li>
-                  <li>讓髮量看起來更豐、髮根更挺。</li>
-                </ul>
-
-                <p class="note-line">
-                  👉 很適合正在掉髮、髮絲越來越細的客人。
-                </p>
-              </details>
-            </article>
+        <!-- 頭皮 SPA -->
+        <div class="section-block">
+          <div class="section-title-row">
+            <div class="section-title">頭皮 SPA</div>
+            <div class="section-tag">Scalp Spa</div>
           </div>
-        </section>
 
-        <p class="footer-note">《 曼都板新店 · 價目表 》</p>
-      </div>
+          <!-- TONUCIA -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">TONUCIA 櫻珞木泉能精華</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">25 分</span>
+                <span class="price">$1,500</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專為<strong>乾性頭皮、脆弱細髮、缺乏彈性</strong>設計的頭皮活化精華。補水、逆齡、強韌三效合一。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>深層保濕頭皮、改善乾燥脫屑</li>
+                <li>提升頭皮彈性，讓髮絲更堅韌不易斷</li>
+                <li>強化頭皮防禦力，延緩頭皮老化</li>
+                <li>調理油水平衡，使頭皮柔軟有彈性</li>
+              </ul>
+              <p>👉 感受：頭皮水潤、有彈性，髮絲更有精神感。</p>
+            </div>
+          </div>
 
-      <!-- ========= 預約須知 ========= -->
-      <div class="tab-panel" id="tab-booking">
-        <section class="section-card">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <h2 class="section-title">預約須知</h2>
+          <!-- 紫苑草 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">紫苑草冰鎮舒緩 SPA</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">25 分</span>
+                <span class="price">$1,600</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專門給<strong>敏感頭皮、緊繃、悶熱、容易刺癢</strong>的人使用，冰鎮涼感能瞬間降溫，舒緩不適。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>鎮定敏感、舒緩乾癢不適</li>
+                <li>瞬間降溫，減少悶熱與緊繃感</li>
+                <li>強化頭皮防禦力、不容易再刺激</li>
+                <li>提升頭皮含氧感，更輕透舒服</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 洋甘菊 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">洋甘菊精油 SPA（敏感修護）</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">30 分</span>
+                <span class="price">$1,600</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>適合：敏弱、易紅、乾癢、刺痛、頭皮緊繃的人。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>舒緩敏感、改善頭皮不適</li>
+                <li>抗紅、抗壓，減少乾燥脫屑</li>
+                <li>增加頭皮彈性、提升保護力</li>
+                <li>促進循環，使頭皮更健康穩定</li>
+              </ul>
+              <p>✨ 效果感受：柔軟、放鬆、不緊繃，敏感感降低。</p>
+            </div>
+          </div>
+
+          <!-- 薄荷 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">薄荷精油 SPA（活化控油）</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">30 分</span>
+                <span class="price">$1,600</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>適合：出油快、頭皮悶、扁塌、容易疲勞頭皮的人。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>平衡頭皮 PH 值，調整油脂</li>
+                <li>清爽不黏膩，改善悶熱與異味</li>
+                <li>促進頭皮循環、增加含氧感</li>
+                <li>醒腦舒壓、增強抗菌力</li>
+                <li>讓髮根更蓬鬆、精神感提升</li>
+              </ul>
+              <p>✨ 效果感受：涼爽、清新、透氣，頭皮很輕鬆。</p>
+            </div>
+          </div>
+
+          <!-- 淨化精油 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">淨化 SPA 精油</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">30 分</span>
+                <span class="price">$1,600</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專為「出油、悶熱、堵塞、易長頭皮痘」的頭皮設計，深層淨化＋溫和舒緩。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>深層淨化頭皮，排掉油脂與髒污</li>
+                <li>舒緩緊繃、減少悶熱不適</li>
+                <li>改善頭皮異味與油膩感</li>
+                <li>提升頭皮呼吸感，讓髮根更蓬鬆</li>
+                <li>平衡油脂分泌，延緩出油時間</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- AC 精油 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">AC 精油頭皮舒壓課程</div>
+              <div class="price-line" style="justify-content:flex-end;margin:0;">
+                <span class="duration">30 分</span>
+                <span class="price">$1,700</span>
+              </div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>預防落髮 · 提升循環代謝 · 深層放鬆。使用<strong>法國雙重有機認證精油</strong>，改善壓力與循環不良造成的頭皮疲勞。</p>
+              <p>建議頻率：每週 1–2 次。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>促進循環，改善頭皮代謝差</li>
+                <li>預防落髮、強化毛囊</li>
+                <li>放鬆緊繃頭皮，舒緩壓力疲勞</li>
+                <li>提升含氧感，減少沉重與悶脹感</li>
+                <li>調理油脂，讓頭皮更清爽健康</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 養護 -->
+        <div class="section-block">
+          <div class="section-title-row">
+            <div class="section-title">養護</div>
+            <div class="section-tag">Scalp Care</div>
+          </div>
+
+          <!-- 蘋果幹細胞 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">蘋果幹細胞</div>
+              <div class="price">$1,200</div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專門「活化毛囊、改善落髮」的頭皮安瓶，從根源調理頭皮，讓頭髮長得更強壯、不容易掉。</p>
+              <p><strong>✨ 專為落髮問題設計</strong></p>
+              <ul>
+                <li>活絡毛囊，促進新生髮芽</li>
+                <li>減少落髮、強化髮根抓力</li>
+                <li>平衡油脂、改善頭皮緊繃與乾癢</li>
+                <li>提高頭皮代謝，讓頭皮環境更健康</li>
+              </ul>
+              <p>👉 整體感覺：掉髮變少、髮根更挺、頭皮更舒服。</p>
+            </div>
+          </div>
+
+          <!-- 亞美尼斯 -->
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">亞美尼斯</div>
+              <div class="price">$1,200</div>
+            </div>
+            <button class="toggle-detail"><span class="symbol">＋</span> 展開介紹與功效</button>
+            <div class="detail">
+              <p>專門針對「落髮、髮根軟、髮量變少」設計的髮根精華，能軟化僵硬的膠原纖維，讓毛囊重新呼吸、強壯生長。</p>
+              <p><strong>✨ 主要功效</strong></p>
+              <ul>
+                <li>減少落髮、強化髮根抓力</li>
+                <li>改善髮根脆弱、容易斷裂</li>
+                <li>延長髮絲的健康生長期</li>
+                <li>讓髮量看起來更豐、髮根更挺</li>
+              </ul>
+              <p>👉 很適合正在掉髮、髮絲越來越細的客人。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 預約須知 -->
+      <section class="tab-panel" id="booking">
+        <div class="section-block">
+          <div class="section-title-row">
+            <div class="section-title">預約須知</div>
             <div class="section-tag">Booking Info</div>
           </div>
-          <p class="section-subtitle">
-            先看一眼小提醒，預約流程會更順利，也可以幫大家省下很多溝通時間 ♡
-          </p>
 
-          <div class="divider"></div>
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">基本資料</div>
+            </div>
+            <ul class="note-list">
+              <li>
+                <span class="note-icon">📝</span>
+                <span class="note-text">
+                  預約時請填寫：<strong>名字、生日、電話</strong>，並提供 <strong>2–3 個想要的時段</strong>，方便我們幫你安排。
+                </span>
+              </li>
+            </ul>
+          </div>
 
-          <p class="strong" style="margin:4px 0 2px;">📋 基本資料</p>
-          <ul class="booking-list">
-            <li>
-              預約時請填寫：<span class="strong">名字、生日、電話</span>，
-              以及 <span class="strong">2–3 個想要的時間</span>（時段），方便幫你安排。
-            </li>
-          </ul>
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">剪髮小提醒</div>
+            </div>
+            <ul class="note-list">
+              <li>
+                <span class="note-icon">💇‍♀️</span>
+                <span class="note-text">
+                  建議不要穿<strong>帽 T 或高領上衣</strong>，會比較好裁剪，也比較不會卡在衣服上。
+                </span>
+              </li>
+            </ul>
+          </div>
 
-          <p class="strong" style="margin:8px 0 2px;">✂️ 剪髮小提醒</p>
-          <ul class="booking-list">
-            <li>建議不要穿帽 T 或高領上衣，方便裁剪與量長度。</li>
-          </ul>
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">染髮小提醒</div>
+            </div>
+            <ul class="note-list">
+              <li>
+                <span class="note-icon">🎨</span>
+                <span class="note-text">
+                  建議不要穿<strong>白色衣服</strong>，以免不小心沾染到顏料。
+                </span>
+              </li>
+            </ul>
+          </div>
 
-          <p class="strong" style="margin:8px 0 2px;">🎨 染髮小提醒</p>
-          <ul class="booking-list">
-            <li>請盡量不要穿白色衣服，避免不小心沾染到染劑。</li>
-          </ul>
+          <div class="card">
+            <div class="card-header-row">
+              <div class="card-title">預約成立條件</div>
+            </div>
+            <ul class="note-list">
+              <li>
+                <span class="note-icon">✅</span>
+                <span class="note-text">
+                  以<strong>老師或櫃台回覆「確認好時間」</strong>為主，才算預約成功喔。
+                </span>
+              </li>
+            </ul>
+            <div class="small-label">《 曼都板新店 · 預約須知 》</div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-          <p class="strong" style="margin:8px 0 2px;">✅ 預約成立條件</p>
-          <ul class="booking-list">
-            <li>
-              以<span class="strong">老師或設計師跟你確認好時間</span>為主，回覆確認後才算預約成功喔。
-            </li>
-          </ul>
-
-          <p class="strong" style="margin:8px 0 2px;">⏰ 關於時間安排</p>
-          <ul class="booking-list">
-            <li>每週三固定公休，當日不對外營業。</li>
-            <li>假日預約較滿，建議提前 1–3 天預約比較保險。</li>
-            <li>如需取消或改期，請提前跟我們說一聲，真的非常感謝你 ♡</li>
-          </ul>
-        </section>
-
-        <p class="footer-note">《 曼都板新店 · 預約須知 》</p>
-      </div>
-    </section>
-  </main>
+    <footer>
+      © 曼都板新店 · HAIR · Creamy Cute Style
+    </footer>
+  </div>
 
   <script>
     // 分頁切換
-    const tabButtons = document.querySelectorAll(".tab-btn");
-    const tabPanels = {
-      notice: document.getElementById("tab-notice"),
-      price: document.getElementById("tab-price"),
-      booking: document.getElementById("tab-booking"),
-    };
+    document.querySelectorAll(".tab-button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var target = btn.getAttribute("data-tab");
 
-    tabButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const target = btn.dataset.tab;
-
-        tabButtons.forEach((b) => b.classList.remove("active"));
+        document.querySelectorAll(".tab-button").forEach(function (b) {
+          b.classList.remove("active");
+        });
         btn.classList.add("active");
 
-        Object.keys(tabPanels).forEach((key) => {
-          tabPanels[key].classList.toggle("active", key === target);
+        document.querySelectorAll(".tab-panel").forEach(function (panel) {
+          panel.classList.remove("active");
         });
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        document.getElementById(target).classList.add("active");
       });
     });
+
+    // 展開 / 收起 介紹
+    function bindToggleButtons() {
+      document.querySelectorAll(".toggle-detail").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var detail = btn.nextElementSibling;
+          if (!detail) return;
+
+          var symbol = btn.querySelector(".symbol");
+          if (detail.style.display === "block") {
+            detail.style.display = "none";
+            if (symbol) symbol.textContent = "＋";
+            btn.lastChild.textContent = " 展開介紹與功效";
+          } else {
+            detail.style.display = "block";
+            if (symbol) symbol.textContent = "－";
+            btn.lastChild.textContent = " 收起介紹與功效";
+          }
+        });
+      });
+    }
+
+    bindToggleButtons();
   </script>
 </body>
 </html>
